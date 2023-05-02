@@ -5,13 +5,12 @@ import Consultation from './Consultation';
 const ContactUS = () => {
     return (
         <>
-            <div className="hero" style={{ backgroundImage: "url(https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/contact.jpg)", height: '420px', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+            <div className="hero" style={{ backgroundImage: "url(https://wallpaperaccess.com/full/4823424.jpg)", height: '420px', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
                 <div className="hero-content text-center font-thin">
                     <div className="max-w-md">
-                        <h1 className="text-3xl md:text-5xl font-bold mb-2 text-cyan-400">Helping You
+                        <h1 className="text-3xl md:text-5xl font-bold mb-5 pt-5 text-cyan-400">Contact us for details
                         </h1>
-                        <h1 className='text-slate-800 mb-5 text-3xl md:text-5xl font-bold'>Stay Healthy</h1>
-                        <p className="mb-5 text-slate-800">Contact us for details</p>
+                        <h1 className='text-slate-200 mb-5 text-2xl md:text-4xl font-bold'>“In the best interest of profession, <br /> a writer should sometimes refrain from writing.”</h1>
                         
                     </div>
                 </div>
