@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
+import auth from '../../firebase.init';
 
 const UseAdmin = () => {
     const [admin , setAdmin] = useState(false);
@@ -8,7 +8,7 @@ const UseAdmin = () => {
     const [user] = useAuthState(auth);
   
     useEffect( () => {
-        const email = user?.email;
+        const email = user?.email; 
         fetch(`https://online-bank-of-bd-server.vercel.app/user/admin/${email}`, {
             method: 'GET',
             headers: {

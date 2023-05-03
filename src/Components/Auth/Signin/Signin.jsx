@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import { GiCancel } from "react-icons/gi";
-import { FaGoogle } from 'react-icons/fa';
 import UseToken from '../../../Hooks/useToken';
 
 const Signin = () => {
@@ -95,14 +94,14 @@ const Signin = () => {
         }
         {/* end  */}
 
-        <div className="py-5">
-          <button onClick={handleGoogleSignin}>
-            <FaGoogle
-              className="mx-3 w-12 h-12 p-2 rounded-full border hover:bg-gray-300"
-              size="1x"
-              color="orange"
-            />
-          </button>
+        <div className="py-5 w-4/5 md:w-2/5 mx-auto">
+          <div
+            onClick={handleGoogleSignin}
+            className="flex items-center justify-center border rounded py-2 my-2 cursor-pointer hover:bg-gray-300"
+          >
+            <img className="w-6" src={google} alt="" />
+            <span className="pl-2">Continue With Google</span>
+          </div>
         </div>
         <span className="text-gray-500">or use your account</span>
         <form

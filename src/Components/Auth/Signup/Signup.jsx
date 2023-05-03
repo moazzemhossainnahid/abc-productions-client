@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import UseToken from "../../../Hooks/useToken";
 import Loading from "../../Others/Loading";
 import { toast } from "react-toastify";
-import { FaGoogle } from "react-icons/fa";
+import google from '../../../assets/Google-Logo.png';
 import { sendEmailVerification, updateProfile } from "firebase/auth";
 
 const Signup = () => {
@@ -71,16 +71,18 @@ const Signup = () => {
       <div className="w-5/6 md:w-2/4 bg-white mx-auto text-center rounded">
         <h2 className="font-bold text-black text-2xl py-5">Create Account</h2>
         <div className="py-5">
-          <button onClick={handleGoogleSignin}>
-            <FaGoogle
-              className="mx-3 w-12 h-12 p-2 rounded-full border hover:bg-gray-300 hover:text-white"
-              size="1x"
-              color="orange"
-            />
-          </button>
+          <div className="py-5 w-4/5 md:w-2/5 mx-auto">
+            <div
+              onClick={handleGoogleSignin}
+              className="flex items-center justify-center border rounded py-2 my-2 cursor-pointer hover:bg-gray-300"
+            >
+              <img className="w-6" src={google} alt="" />
+              <span className="pl-2">Continue With Google</span>
+            </div>
+          </div>
 
         </div>
-        <span className="text-gray-400">or use your account</span>
+        <span className="text-gray-400">or create an account</span>
         <form
           onSubmit={handleSubmit(handleSignupform)}
           action=""
