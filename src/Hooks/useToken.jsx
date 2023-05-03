@@ -8,7 +8,7 @@ const UseToken = (user) => {
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
         const currentUser = {
-            email:  email,
+            email:  email, 
             joiningDate: date
         }
         if(email){
