@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
+import { RiseLoader } from "react-spinners";
 
-import loading from '../../images/movieLoading.gif';
 const Loading = () => {
     return (
-        <div className='bg-white w-full h-full-screen flex items-center justify-center'>
-            <img className='' src={loading} alt="" />
+        <div className="flex justify-center items-center mt-2 w-full h-screen py-10">
+
+            <RiseLoader color="#36d7b7" size={70} />
+
         </div>
     );
 };
