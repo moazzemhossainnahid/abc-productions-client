@@ -12,22 +12,22 @@ const Authentication = () => {
     const [user] = useAuthState(auth);
     const [token] = UseToken();
     const navigate = useNavigate();
-    const [profile ,setProfile]=useState(null)
+    const [profile, setProfile] = useState(null)
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`https://online-bank-of-bd-server.vercel.app/profile/${user?.email}`)
-        .then(res=>{
-          if(!res.status===200){
-            toast.error("Profile Not Found!")
-          }
-          return res.json()
-        })
-        .then(data=>{
-          if(data){
-            setProfile(data)
-          }
-        })
-      },[user])
+            .then(res => {
+                if (!res.status === 200) {
+                    toast.error("Profile Not Found!")
+                }
+                return res.json()
+            })
+            .then(data => {
+                if (data) {
+                    setProfile(data)
+                }
+            })
+    }, [user])
 
     const handleSignOut = async () => {
         await signOut(auth)
@@ -55,13 +55,13 @@ const Authentication = () => {
                                         profile?.image && <img src={profile?.image} alt='img' />
                                     }
                                     {!profile?.image &&
-                                    user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
+                                        user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
                                 </div>
                             </label>
                         </div>
                         <ul tabindex="0" className="mt-3 p-2 gap-1 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                             <li> <Link to="/profile" className="justify-between"> Profile <span className="badge">New</span> </Link> </li>
-                            <li><Link to="">Settings</Link></li>
+                            <li><Link to="/publish">Publish Post</Link></li>
                             <li><button onClick={handleSignOut}>Sign Out</button></li>
                         </ul>
                     </div>

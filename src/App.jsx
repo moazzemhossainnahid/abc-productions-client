@@ -16,6 +16,8 @@ import AdDashboard from './Components/Dashboard/AdminDashboard/Dashboard/AdDashb
 import ManageUsers from './Components/Dashboard/AdminDashboard/ManageUsers/ManageUsers';
 import ManagePosts from './Components/Dashboard/AdminDashboard/ManagePosts/ManagePosts';
 import UnapprovePosts from './Components/Dashboard/AdminDashboard/UnapprovePosts/UnapprovePosts';
+import Profile from './Components/Dashboard/UserDashboard/Profile/Profile';
+import Publish from './Components/Dashboard/UserDashboard/Publish/Publish';
 
 
 function App() {
@@ -31,6 +33,11 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
+
+          {/* User Routes */}
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/publish" element={<Publish />} />
+
 
           {/* Control Panel Routes */}
           <Route path="/cpanel" element={<RequireAuth><RequireAdmin><CPanel /></RequireAdmin></RequireAuth>}>
