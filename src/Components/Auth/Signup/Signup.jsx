@@ -1,5 +1,5 @@
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
@@ -14,7 +14,7 @@ const Signup = () => {
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] = useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
-  
+
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,53 +68,62 @@ const Signup = () => {
 
   return (
     <div className="w-full bg-slate-300 py-10">
-    <div className="w-5/6 md:w-2/4 bg-white mx-auto text-center rounded">
-      <h2 className="font-bold text-black text-2xl py-5">Create Account</h2>
-      <div className="py-5">
-        <button onClick={handleGoogleSignin}>
-          <FaGoogle
-            className="mx-3 w-12 h-12 p-2 rounded-full border hover:bg-green-700 hover:text-white"
-            size="1x"
-            color="gray"
-          />
-        </button>
+      <div className="w-5/6 md:w-2/4 bg-white mx-auto text-center rounded">
+        <h2 className="font-bold text-black text-2xl py-5">Create Account</h2>
+        <div className="py-5">
+          <button onClick={handleGoogleSignin}>
+            <FaGoogle
+              className="mx-3 w-12 h-12 p-2 rounded-full border hover:bg-gray-300 hover:text-white"
+              size="1x"
+              color="orange"
+            />
+          </button>
 
+        </div>
+        <span className="text-gray-400">or use your account</span>
+        <form
+          onSubmit={handleSubmit(handleSignupform)}
+          action=""
+          className="py-3"
+        >
+          <input
+            {...register("displayName")}
+            type="text"
+            placeholder="Enter Your Name"
+            required
+            className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs"
+          />
+          <input
+            {...register("email")}
+            type="email"
+            placeholder="Enter Your Email"
+            required
+            className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs"
+          />
+          <input
+            {...register("password")}
+            type="password"
+            placeholder="Enter Your Password"
+            required
+            className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs"
+          />
+          {signupError}
+          <input
+            className="btn btn-outline px-7 btn-natural my-5 block mx-auto"
+            type="submit"
+            value="SIGN UP"
+          />
+        </form>
+        <p className="text-gray-800 mt-1 pb-5 text-center">
+          Already Have an Account?{" "}
+          <Link
+            to="/signin"
+            className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+          >
+            Sign In
+          </Link>
+        </p>
       </div>
-      <span className="text-gray-400">or use your account</span>
-      <form
-        onSubmit={handleSubmit(handleSignupform)}
-        action=""
-        className="py-3"
-      >
-        <input
-          {...register("displayName")}
-          type="text"
-          placeholder="Enter Your Name"
-          required
-          className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs"
-        />
-        <input
-          {...register("email")}
-          type="email"
-          placeholder="Enter Your Email"
-          required
-          className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs"
-        />
-        <input
-          {...register("password")}
-          type="password"
-          placeholder="Enter Your Password"
-          required
-          className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs"
-        />
-        {signupError}
-        <input
-          className="btn btn-outline px-7 btn-natural my-5 block mx-auto"
-          type="submit"
-          value="SIGN UP"
-        />
-      </form>
-    </div>
     </div>
   );
 };
