@@ -20,8 +20,8 @@ const PostItem = ({
         <img className='blogItem-cover' src={cover} alt='cover' />
         <Chip label={category} />
         <h3 className='text-xl md:text-2xl font-bold text-start'>{title}</h3>
-        <p className='blogItem-desc text-start pb-5'>{description?.slice(0,120)}</p>
-        <footer>
+        <p className='blogItem-desc text-start pb-7'>{description?.slice(0,120)}</p>
+        <footer className=''>
           <div className='blogItem-author'>
             <img src={authorAvatar} alt='avatar' />
             <div>
@@ -29,7 +29,7 @@ const PostItem = ({
               <p>{createdAt}</p>
             </div>
           </div>
-          <Link className='blogItem-link' to={`/posts/${id}`}>
+          <Link className='blogItem-link text-xl' to={`/posts/${id}`}>
             ➝
           </Link>
         </footer>
