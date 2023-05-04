@@ -10,9 +10,10 @@ const Header = () => {
     const navigate = useNavigate();
 
     let Links = [
-        { name: 'HOME', to: '/' },
-        { name: 'ABOUT', to: '/aboutus' },
-        { name: 'CONTACT', to: '/contactus' }
+        { name: 'Home', to: '/' },
+        { name: 'Posts', to: '/posts' },
+        { name: 'About', to: '/aboutus' },
+        { name: 'Contact', to: '/contactus' }
     ];
 
     let [open, setOpen] = useState(false);

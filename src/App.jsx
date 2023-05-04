@@ -18,6 +18,8 @@ import ManagePosts from './Components/Dashboard/AdminDashboard/ManagePosts/Manag
 import UnapprovePosts from './Components/Dashboard/AdminDashboard/UnapprovePosts/UnapprovePosts';
 import Profile from './Components/Dashboard/UserDashboard/Profile/Profile';
 import Publish from './Components/Dashboard/UserDashboard/Publish/Publish';
+import Posts from './Components/Posts/Posts';
+import SinglePost from './Components/Posts/SinglePost/SinglePost';
 
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
       <div className="App pt-20">
         <Header />
         <Routes>
-          <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path='/posts/:id' element={<SinglePost/>} />
           <Route path="/aboutus" element={<AboutUS />} />
           <Route path="/contactus" element={<ContactUS />} />
           <Route path="/signin" element={<Signin />} />
@@ -35,8 +39,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* User Routes */}
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/publish" element={<Publish />} />
+          <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+          <Route path="/publish" element={<RequireAuth><Publish /></RequireAuth>} />
 
 
           {/* Control Panel Routes */}

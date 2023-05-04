@@ -11,4 +11,14 @@ export const SidebarData = [
         href: "musers",
         icon: faUsers,
     },
+    {
+        title: "Manage Publish Post",
+        href: "mpposts",
+        icon: faUsers,
+    }, 
+    {
+        title: "Manage UnPublish Post",
+        href: "munposts",
+        icon: faUsers,
+    },
 ];

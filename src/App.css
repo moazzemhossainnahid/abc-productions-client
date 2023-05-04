@@ -29,6 +29,15 @@
   color: #61dafb;
 }
 
+
+.container {
+  max-width: 1140px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -42,3 +51,5 @@
   font-family: Gumela;
   src: url('./fonts/Gumela.woff');
 }
+
+

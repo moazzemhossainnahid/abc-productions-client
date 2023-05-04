@@ -24,7 +24,7 @@ const RequireAuth = ({ children }) => {
 
     if (!user.emailVerified) {
         return <div>
-            <div className="card flex justify-evenly bg-base-100 shadow-2xl">
+            <div className="card flex justify-evenly bg-base-100 shadow-2xl py-10">
                 <div>
                     <figure><img src="https://image.shutterstock.com/image-photo/business-technology-internet-concept-businessman-260nw-277822280.jpg" alt="Album" /></figure>
                 </div>
