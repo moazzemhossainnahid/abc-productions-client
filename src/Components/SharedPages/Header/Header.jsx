@@ -11,7 +11,7 @@ const Header = () => {
 
     let Links = [
         { name: 'Home', to: '/' },
-        { name: 'Posts', to: '/posts' },
+        // { name: 'Posts', to: '/posts' },
         { name: 'About', to: '/aboutus' },
         { name: 'Contact', to: '/contactus' }
     ];

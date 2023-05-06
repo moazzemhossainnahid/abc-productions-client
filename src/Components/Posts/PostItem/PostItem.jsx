@@ -29,7 +29,7 @@ const PostItem = ({
               <p>{createdAt}</p>
             </div>
           </div>
-          <Link className='blogItem-link text-xl' to={`/posts/${id}`}>
+          <Link className='blogItem-link text-xl' to={`/post/${id}`}>
             ➝
           </Link>
         </footer>

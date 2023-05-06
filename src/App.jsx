@@ -29,9 +29,8 @@ function App() {
       <div className="App pt-20">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path='/posts/:id' element={<SinglePost/>} />
+          <Route path="/" element={<Posts />} />
+          <Route path='/post/:id' element={<RequireAuth><SinglePost/></RequireAuth>} />
           <Route path="/aboutus" element={<AboutUS />} />
           <Route path="/contactus" element={<ContactUS />} />
           <Route path="/signin" element={<Signin />} />

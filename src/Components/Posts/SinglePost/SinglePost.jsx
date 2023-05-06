@@ -21,7 +21,7 @@ const SinglePost = () => {
     return (
         <>
             <div className="container py-7">
-                <Link className='blog-goBack w-32 rounded mx-3 justify-start px-5 py-2 flex text-indigo-600 bg-gray-200' to='/posts'>
+                <Link className='blog-goBack w-32 rounded mx-3 justify-start px-5 py-2 flex text-indigo-600 bg-gray-200' to='/'>
                     <span> &#8592;</span> <span className='pl-2'>Go Back</span>
                 </Link>
                 {blog ? (
