@@ -1,7 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './Components/SharedPages/Footer/Footer';
-import Home from './Components/Home/Home';
 import ContactUS from './Components/ContactUS/ContactUS';
 import NotFound from './Components/NotFound/NotFound';
 import AboutUS from './Components/AboutUS/AboutUS';

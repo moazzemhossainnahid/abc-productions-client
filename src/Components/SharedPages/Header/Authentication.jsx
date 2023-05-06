@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
@@ -12,22 +11,6 @@ const Authentication = () => {
     const [user] = useAuthState(auth);
     const [token] = UseToken();
     const navigate = useNavigate();
-    const [profile, setProfile] = useState(null)
-
-    useEffect(() => {
-        fetch(`https://online-bank-of-bd-server.vercel.app/profile/${user?.email}`)
-            .then(res => {
-                if (!res.status === 200) {
-                    toast.error("Profile Not Found!")
-                }
-                return res.json()
-            })
-            .then(data => {
-                if (data) {
-                    setProfile(data)
-                }
-            })
-    }, [user])
 
     const handleSignOut = async () => {
         await signOut(auth)
@@ -51,11 +34,8 @@ const Authentication = () => {
                             </div>
                             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    {
-                                        profile?.image && <img src={profile?.image} alt='img' />
-                                    }
-                                    {!profile?.image &&
-                                        user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
+
+                                    {user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
                                 </div>
                             </label>
                         </div>

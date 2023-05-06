@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AiOutlineBars, AiOutlineClose } from "react-icons/ai";
 import Button from '../../Others/Button';
-import useFirebase from '../../Others/useFirebase';
 import Authentication from './Authentication';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
+import Loading from '../../Others/Loading';
 
 const Header = () => {
-    const { user } = useFirebase();
+    const { user, loading } = useAuthState(auth);
     const navigate = useNavigate();
 
     let Links = [
@@ -15,6 +17,10 @@ const Header = () => {
         { name: 'About', to: '/aboutus' },
         { name: 'Contact', to: '/contactus' }
     ];
+
+    if(loading){
+        return <Loading/>
+    }
 
     let [open, setOpen] = useState(false);
     return (
