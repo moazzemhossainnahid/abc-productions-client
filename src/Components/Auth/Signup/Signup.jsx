@@ -1,42 +1,31 @@
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
 import { useForm } from "react-hook-form";
-import UseToken from "../../../Hooks/useToken";
 import Loading from "../../Others/Loading";
 import { toast } from "react-toastify";
-import google from '../../../assets/Google-Logo.png';
 import { sendEmailVerification, updateProfile } from "firebase/auth";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] = useCreateUserWithEmailAndPassword(auth);
-  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
 
   const { register, handleSubmit, reset } = useForm();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
 
   let signupError;
 
-  const [token] = UseToken(cuser || guser);
 
-  if (cloading || gloading) {
+  if (cloading) {
     return <Loading />
   };
 
-  if (cerror || gerror) {
-    signupError = <p className="text-red-700">{cerror?.message || gerror?.message}</p>
+
+  if (cerror) {
+    signupError = <p className="text-red-700">{cerror?.message}</p>
   };
 
-
-  if (token) {
-    navigate(from, { replace: true });
-    toast.success("Signin User Successfully")
-  };
 
 
   const handleSignupform = async (data) => {
@@ -52,15 +41,15 @@ const Signup = () => {
   }
 
 
-  const handleGoogleSignin = async () => {
-    await signInWithGoogle()
-  }
+  // const handleGoogleSignin = async () => {
+  //   await signInWithGoogle()
+  // }
 
 
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser)
       .then(() => {
-        toast.success('email sent')
+        toast.success('Verification Email Sent Successfully')
       })
   }
 

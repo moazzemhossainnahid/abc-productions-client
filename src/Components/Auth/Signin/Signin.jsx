@@ -40,7 +40,7 @@ const Signin = () => {
 
   const from = location.state?.from?.pathname || '/';
 
-  const [token] = UseToken(suser || guser);
+  const [token] = UseToken();
 
 
   if (sloading || gloading) {

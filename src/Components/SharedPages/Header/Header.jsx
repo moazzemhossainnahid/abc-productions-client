@@ -5,10 +5,9 @@ import Button from '../../Others/Button';
 import Authentication from './Authentication';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
-import Loading from '../../Others/Loading';
 
 const Header = () => {
-    const { user, loading } = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
     let Links = [
@@ -18,9 +17,7 @@ const Header = () => {
         { name: 'Contact', to: '/contactus' }
     ];
 
-    if(loading){
-        return <Loading/>
-    }
+    console.log(user);
 
     let [open, setOpen] = useState(false);
     return (
