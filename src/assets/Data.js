@@ -1,4 +1,4 @@
-import { faDashboard, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faDashboard, faDraftingCompass, faSignsPost, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 export const SidebarData = [
     {
@@ -14,11 +14,11 @@ export const SidebarData = [
     {
         title: "Manage Publish Post",
         href: "mpposts",
-        icon: faUsers,
+        icon: faSignsPost,
     }, 
     {
         title: "Manage UnPublish Post",
         href: "munposts",
-        icon: faUsers,
+        icon: faDraftingCompass,
     },
 ];

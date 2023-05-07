@@ -1,6 +1,6 @@
 import { faHomeAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { SidebarData } from '../../../../../assets/Data';
 
@@ -12,7 +12,7 @@ const Sidebar = () => {
       <div className={` ${open ? "w-72 h-screen" : "w-20 h-screen"} bg-black sticky p-5 duration-300`} >
         <img src="https://i.ibb.co/CB1yQwj/kuba-arrow-button-set-2.png" className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} alt="" />
         <div className="flex flex-col gap-x-4 items-center">
-          <img src="https://i.ibb.co/hFSH4Fw/Untitled-fdgfd1.png" className={`cursor-pointer w-full mx-auto duration-500 ${open && " w-2/3 rotate-[360deg]"}`} alt="" /> <br />
+          <h3 className={`cursor-pointer w-full text-2xl font-bold text-rose-600 mx-auto opacity-0 duration-500 ${open && " w-2/3 rotate-[360deg] opacity-100"}`} > ABC Publications </h3> <br />
         </div>
         <ul className="pt-6">
           {SidebarData?.map((data, index) => (

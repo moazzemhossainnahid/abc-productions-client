@@ -5,7 +5,7 @@ const UserDetails = ({ user, index }) => {
     const { _id, email, role } = user;
 
     const handleMakeAdmin = () => {
-        fetch(`https://online-bank-of-bd-server.vercel.app/user/admin/${email}`, {
+        fetch(`http://localhost:5000/api/v1/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -16,6 +16,7 @@ const UserDetails = ({ user, index }) => {
                 return res.json()
             })
             .then(data => {
+                console.log(data);
                 if (data.modifiedCount > 0) {
                     toast('Successfully Make an Admin')
                 }
@@ -23,7 +24,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveAdmin = () => {
-        fetch(`https://online-bank-of-bd-server.vercel.app/user/admin/remove/${email}`, {
+        fetch(`http://localhost:5000/api/v1/users/admin/remove/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +40,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveUser = (id) => {
-        fetch(`https://online-bank-of-bd-server.vercel.app/user/${id}`, {
+        fetch(`http://localhost:5000/api/v1/users/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -48,6 +49,7 @@ const UserDetails = ({ user, index }) => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 if (data.deletedCount > 0) {
                     toast('Successfully Remove an User')
                 }
@@ -67,7 +69,7 @@ const UserDetails = ({ user, index }) => {
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                {role === 'admin' ? <div className="badge text-blue-700 badge-outline">Admin</div> : <button onClick={handleMakeAdmin} className="btn btn-xs btn-outline btn-primary">Make Admin</button>}
+                {(role === 'admin' || role === "superadmin") ? <div className="badge text-blue-700 badge-outline">Admin</div> : <button onClick={handleMakeAdmin} className="btn btn-xs btn-outline btn-primary">Make Admin</button>}
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>

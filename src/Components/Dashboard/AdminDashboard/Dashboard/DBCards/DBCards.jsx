@@ -1,4 +1,4 @@
-import { faArrowAltCircleRight, faBank, faMoneyCheckAlt, faReceipt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight, faBank, faMoneyCheckAlt, faPenToSquare, faReceipt, faRoadLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ const DBCards = () => {
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     useEffect(() => {
-        fetch('https://online-bank-of-bd-server.vercel.app/users')
+        fetch('http://localhost:5000/api/v1/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, []);
@@ -58,10 +58,10 @@ const DBCards = () => {
 
     return (
         <div className=''>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 py-10">
+            <div className="grid grid-cols-1 gap-5 py-10">
                 {/* Registered Users */}
                 <div className="">
-                    <div className="flex items-center justify-between bg-yellow-300 p-3 rounded-t-xl">
+                    <div className="flex items-center justify-between bg-rose-300 p-3 rounded-t-xl">
                         <div className="">
                             <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{users?.length}</h3>
                             <h3 className="text-md font-bold text-white">Registered Users</h3>
@@ -70,7 +70,7 @@ const DBCards = () => {
                             <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faUserPlus} />
                         </div>
                     </div>
-                    <div onClick={() => navigate('/cpanel/musers')} className="bg-yellow-400 cursor-pointer py-2 text-center rounded-b-xl">
+                    <div onClick={() => navigate('/cpanel/musers')} className="bg-rose-400 cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
                 </div>
@@ -79,13 +79,13 @@ const DBCards = () => {
                     <div className="flex items-center justify-between bg-[#17A2BB] p-3 rounded-t-xl">
                         <div className="">
                             <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{accounts?.length}</h3>
-                            <h3 className="text-md font-bold text-white">Customers Accounts</h3>
+                            <h3 className="text-md font-bold text-white">Total Publish Post</h3>
                         </div>
                         <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faBank} />
+                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faPenToSquare} />
                         </div>
                     </div>
-                    <div onClick={() => navigate('/cpanel/maccounts')} className="bg-[#0c93ab] cursor-pointer py-2 text-center rounded-b-xl">
+                    <div onClick={() => navigate('/cpanel/mposts')} className="bg-[#0c93ab] cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
                 </div>
@@ -94,17 +94,17 @@ const DBCards = () => {
                     <div className="flex items-center justify-between bg-[#28A745] p-3 rounded-t-xl">
                         <div className="">
                             <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance?.toFixed(0)}</h3>
-                            <h3 className="text-md font-bold text-white">Our Balance</h3>
+                            <h3 className="text-md font-bold text-white">Total UnPublish Post</h3>
                         </div>
                         <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faMoneyCheckAlt} />
+                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faRoadLock} />
                         </div>
                     </div>
-                    <div onClick={() => navigate('/cpanel/maccounts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
+                    <div onClick={() => navigate('/cpanel/munposts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
                 </div>
-                {/* Todays Transactions */}
+                {/* Todays Transactions
                 <div className="">
                     <div className="flex items-center justify-between bg-[#DC3545] p-3 rounded-t-xl">
                         <div className="">
@@ -118,7 +118,7 @@ const DBCards = () => {
                     <div onClick={() => navigate('/cpanel/thistory')} className="bg-[#bd1122] cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
-                </div>
+                </div> */}
             </div>
 
         </div>
