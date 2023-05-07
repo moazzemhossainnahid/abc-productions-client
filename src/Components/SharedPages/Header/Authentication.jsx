@@ -6,9 +6,11 @@ import { signOut } from 'firebase/auth';
 import auth from '../../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+
 const Authentication = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
+
 
     const handleSignOut = async () => {
         await signOut(auth)
@@ -33,7 +35,8 @@ const Authentication = () => {
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
 
-                                {user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
+                                {user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://www.shareicon.net/data/2016/05/26/771188_man_512x512.png" alt='' />}
+
                             </div>
                         </label>
                     </div>

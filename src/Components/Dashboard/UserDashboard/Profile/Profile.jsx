@@ -3,15 +3,18 @@ import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../../firebase.init';
+import useProfile from '../../../../Hooks/useProfile';
 const Profile = () => {
     const { register, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
+    const [profile] = useProfile();
 
     const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
 
     // handle Update Profile
 
     const handleUpdateProfile = async (data) => {
+
         const email = data.email;
         const image = data.photoURL[0];
         const formData = new FormData();
@@ -59,6 +62,8 @@ const Profile = () => {
 
     }
 
+    console.log(profile);
+
     return (
         <section className='bg-gradient-to-l from-secondary to-accent h-full w-full'>
 
@@ -70,15 +75,18 @@ const Profile = () => {
 
                         <div className="w-full md:w-2/5 p-4 mt-20 md:mt-0 sm:p-6 lg:p-8 bg-white shadow-md">
                             <div className="">
-                                <span className="text-xl font-semibold block">{user ? <span className="text-rose-500">{user?.displayName} <span className="text-gray-600">{`'s Profile`}</span></span> : 'User Profile'} </span>
+                                <span className="text-xl font-semibold block"><span className="text-rose-500">{profile && profile?.displayName || user && user?.displayName} <span className="text-gray-600">{`'s Profile`}</span></span></span>
                                 {/* <label for="my-modal-3" class="btn modal-button">open modal</label> */}
+                            </div>
+                            <div className="py-3">
+                                <span className="btn btn-xs text-white">Status: <span className="font-bold pl-2">{profile?.status}</span></span>
                             </div>
 
                             <span className="text-gray-600">This information is secret so be careful</span>
                             <div className="w-full h-fit p-8 mx-2 flex justify-center">
                                 <img id="showImage" className="max-w-xs w-32 items-center border-2 rounded shadow " src={user?.photoURL ? user?.photoURL : "https://www.shareicon.net/data/2016/05/26/771188_man_512x512.png"} alt="" />
                             </div>
-                            <div className="flex justify-end py-3">
+                            <div className="flex justify-end py-3 hidden">
                                 <label for="my-modal-3" className="mt-2 text-md font-bold text-right  text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800">Edit</label>
                             </div>
 
@@ -98,7 +106,7 @@ const Profile = () => {
                                 </div>
                                 <div className="pb-4">
                                     <label for="role" className="font-semibold text-gray-700 block pb-1">Role</label>
-                                    <input disabled id="role" className="border-1 text-gray-500 rounded-r px-4 py-2 w-full" type="tel" value={user?.role} />
+                                    <input disabled id="role" className="border-1 text-gray-500 rounded-r px-4 py-2 w-full" type="tel" value={profile?.role} />
                                     <span className="text-gray-600 pt-4 block opacity-70">Personal login information of your account</span>
                                 </div>
                             </div>

@@ -1,17 +1,17 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../../Others/Loading";
 import { toast } from "react-toastify";
-import { sendEmailVerification, updateProfile } from "firebase/auth";
+import { sendEmailVerification } from "firebase/auth";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] = useCreateUserWithEmailAndPassword(auth);
-
-
+  const [updateProfile] = useUpdateProfile(auth);
+  const navigate = useNavigate()
   const { register, handleSubmit, reset } = useForm();
 
   let signupError;
@@ -29,6 +29,7 @@ const Signup = () => {
 
 
   const handleSignupform = async (data) => {
+
     const displayName = data.displayName;
     const email = data.email;
     const password = data.password;
@@ -49,7 +50,8 @@ const Signup = () => {
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser)
       .then(() => {
-        toast.success('Verification Email Sent Successfully')
+        navigate("/signin");
+        toast.success('Verification Email Sent Successfully');
       })
   }
 

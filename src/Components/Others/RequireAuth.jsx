@@ -33,7 +33,7 @@ const RequireAuth = ({ children }) => {
                     <h2 className='text-xl text-green-600'>Pleser check your email alredy get a mail for Verification</h2>
                     <h2 className='text-xl text-red-600'>If you can't get mail then press the button</h2>
                     <button className='btn btn-success mt-5'
-                        onClick={async () => { await sendEmailVerification(); toast.success('email sent') }}
+                        onClick={async () => { await sendEmailVerification(); toast.success('Verification Email Sent') }}
                     >Send email</button>
                 </div>
             </div>
