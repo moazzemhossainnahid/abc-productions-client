@@ -26,7 +26,8 @@ function App() {
   return (
     <>
       <div className="App pt-20">
-        <Header />
+        {/* <Header /> */}
+        {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/mposts' && window.location.pathname !== '/cpanel/munaposts') && <Header />}
         <Routes>
           <Route path="/" element={<Posts />} />
           <Route path='/post/:id' element={<RequireAuth><SinglePost/></RequireAuth>} />
@@ -50,7 +51,8 @@ function App() {
             <Route path="munaposts" element={<UnapprovePosts />} />
           </Route>
         </Routes>
-        <Footer />
+        {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/mposts' && window.location.pathname !== '/cpanel/munaposts') && <Footer />}
+        {/* <Footer /> */}
         <ToastContainer />
       </div>
     </>

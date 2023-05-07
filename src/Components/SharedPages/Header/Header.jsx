@@ -5,9 +5,11 @@ import Button from '../../Others/Button';
 import Authentication from './Authentication';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
+import UseAdmin from '../../../Hooks/useAdmin';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const [admin] = UseAdmin();
     const navigate = useNavigate();
 
     let Links = [
@@ -38,6 +40,9 @@ const Header = () => {
                         Links.map(link => (
                             <li key={link.name} className='md:ml-8 text-md capitalize md:my-0 my-5'><NavLink className={({ isActive }) => (isActive ? 'text-[#0f52ba] duration-300 border-b-2 border-[#0f52ba]' : 'text-gray-800 duration-100')} to={link.to}>{link.name}</NavLink></li>
                         ))
+                    }
+                    {
+                        (user && admin) && <li className='md:ml-8 text-md capitalize md:my-0 my-5'><NavLink reloadDocument className={({ isActive }) => (isActive ? 'text-[#0f52ba] duration-300 border-b-2 border-[#0f52ba]' : 'text-gray-800 duration-100')} to="/cpanel">Control Panel</NavLink></li>
                     }
                     {
                         user ? <div className="pl-5"><Authentication /></div> : <div className="" onClick={() => navigate('/signin')}><Button>SignIn</Button></div>
