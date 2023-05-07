@@ -1,6 +1,5 @@
 import { signOut } from 'firebase/auth';
 import { toast } from "react-toastify";
-import React from 'react';
 import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 

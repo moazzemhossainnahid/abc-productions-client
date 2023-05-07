@@ -8,8 +8,8 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="flex sticky -mt-16">
-      <div className={` ${open ? "w-72" : "w-20 "} bg-black sticky-top h-full p-5 pt-8 duration-300`} >
+    <div className="flex sticky -mt-20">
+      <div className={` ${open ? "w-72 h-screen" : "w-20 h-screen"} bg-black sticky p-5 duration-300`} >
         <img src="https://i.ibb.co/CB1yQwj/kuba-arrow-button-set-2.png" className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} alt="" />
         <div className="flex flex-col gap-x-4 items-center">
           <img src="https://i.ibb.co/hFSH4Fw/Untitled-fdgfd1.png" className={`cursor-pointer w-full mx-auto duration-500 ${open && " w-2/3 rotate-[360deg]"}`} alt="" /> <br />
