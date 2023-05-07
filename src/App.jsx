@@ -13,12 +13,12 @@ import RequireAdmin from './Components/Others/RequireAdmin';
 import CPanel from './Components/Dashboard/AdminDashboard/Admin/CPanel';
 import AdDashboard from './Components/Dashboard/AdminDashboard/Dashboard/AdDashboard';
 import ManageUsers from './Components/Dashboard/AdminDashboard/ManageUsers/ManageUsers';
-import ManagePosts from './Components/Dashboard/AdminDashboard/ManagePosts/ManagePosts';
 import UnapprovePosts from './Components/Dashboard/AdminDashboard/UnapprovePosts/UnapprovePosts';
 import Profile from './Components/Dashboard/UserDashboard/Profile/Profile';
 import Publish from './Components/Dashboard/UserDashboard/Publish/Publish';
 import Posts from './Components/Posts/Posts';
 import SinglePost from './Components/Posts/SinglePost/SinglePost';
+import ApprovePosts from './Components/Dashboard/AdminDashboard/ManagePosts/ApprovePosts';
 
 
 function App() {
@@ -47,8 +47,8 @@ function App() {
             <Route index element={<AdDashboard />} />
             <Route path="addashboard" element={<AdDashboard />} />
             <Route path="musers" element={<ManageUsers />} />
-            <Route path="mposts" element={<ManagePosts />} />
-            <Route path="munaposts" element={<UnapprovePosts />} />
+            <Route path="approveposts" element={<ApprovePosts />} />
+            <Route path="unapproveposts" element={<UnapprovePosts />} />
           </Route>
         </Routes>
         {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/mposts' && window.location.pathname !== '/cpanel/munaposts') && <Footer />}

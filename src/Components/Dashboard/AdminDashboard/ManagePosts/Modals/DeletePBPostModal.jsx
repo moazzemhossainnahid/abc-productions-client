@@ -1,7 +1,7 @@
 
 import { toast } from 'react-toastify';
 
-const DeletePostModal = ({ deletePost, setNumber, number }) => {
+const DeletePBPostModal = ({ deletePost, setNumber, number }) => {
 
     const { title, authorName, category, _id } = deletePost;
 
@@ -39,4 +39,4 @@ const DeletePostModal = ({ deletePost, setNumber, number }) => {
     );
 };
 
-export default DeletePostModal;
+export default DeletePBPostModal;

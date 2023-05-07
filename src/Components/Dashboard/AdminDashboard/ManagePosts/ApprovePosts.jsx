@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-import ApprovePostModal from './Modals/ApprovePostModal';
-import DeletePostModal from './Modals/DeletePostModal';
-import PendingPostsRow from './PendingPostsRow';
+import DeletePBPostModal from './Modals/DeletePBPostModal';
+import ApprovePostsRow from './PendingPostsRow';
 
-const UnapprovePosts = () => {
+const ApprovePosts = () => {
     const [number, setNumber] = useState(0);
     const [posts, setPosts] = useState(null);
     const [deletePost, setDeletePost] = useState(null);
-    const [unApprovePost, setUnApprovePost] = useState(null);
 
 
     useEffect(() => {
@@ -17,7 +15,7 @@ const UnapprovePosts = () => {
     }, [number])
   
 
-    const unapprovePost = posts?.filter(p => p?.status === 'unapprove');
+    const approvePost = posts?.filter(p => p?.status === 'approve');
 
 
     return (
@@ -25,7 +23,7 @@ const UnapprovePosts = () => {
 
         <div className="w-full flex items-center justify-center my-12">
             <div className="bg-white shadow rounded py-12 px-8 mb-20">
-            <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Posts in Review: {unapprovePost?.length}</p>
+            <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">All Approve Posts: {approvePost?.length}</p>
                 <table className="border-collapse w-full bg-slate-200">
                     {/* <!-- head --> */}
                     <thead>
@@ -43,25 +41,20 @@ const UnapprovePosts = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            unapprovePost?.map((post, index) =>
-                                <PendingPostsRow
+                            approvePost?.map((post, index) =>
+                                <ApprovePostsRow
                                     key={post._id}
                                     post={post}
                                     index={index}
-                                    setUnApprovePost={setUnApprovePost}
                                     setDeletePost={setDeletePost}
-                                ></PendingPostsRow>)
+                                ></ApprovePostsRow>)
                         }
 
                     </tbody>
                 </table>
             </div>
-
             {
-                unApprovePost && <ApprovePostModal unApprovePost={unApprovePost} setNumber={setNumber} number={number} ></ApprovePostModal>
-            }
-            {
-                deletePost && <DeletePostModal deletePost={deletePost} setNumber={setNumber} number={number} ></DeletePostModal>
+                deletePost && <DeletePBPostModal deletePost={deletePost} setNumber={setNumber} number={number} ></DeletePBPostModal>
             }
 
         </div>
@@ -69,4 +62,4 @@ const UnapprovePosts = () => {
     );
 };
 
-export default UnapprovePosts;
+export default ApprovePosts;

@@ -1,6 +1,6 @@
 
 
-const PendingPostsRow = ({ post, index, setDeletePost, setUnApprovePost }) => {
+const ApprovePostsRow = ({ post, index, setDeletePost }) => {
 
     const { title, category, authorName, status, createdAt} = post;
 
@@ -32,9 +32,7 @@ const PendingPostsRow = ({ post, index, setDeletePost, setUnApprovePost }) => {
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <div className="flex justify-between px-3 pb-1 gap-2 items-center">
-                {status === 'unapprove' && <label  htmlFor="approve-post-modal" onClick={() => setUnApprovePost(post)} className="btn text-white btn-accent btn-xs">Review</label>}
-
-                    <label htmlFor="delete-post-modal" onClick={() => setDeletePost(post)} className="btn text-white btn-secondary btn-xs">Delete</label>
+                {status === 'approve' && <label htmlFor="delete-post-modal" onClick={() => setDeletePost(post)} className="btn text-white btn-secondary btn-xs">Delete</label>}
                 </div>
 
             </td>
@@ -42,4 +40,4 @@ const PendingPostsRow = ({ post, index, setDeletePost, setUnApprovePost }) => {
     );
 };
 
-export default PendingPostsRow;
+export default ApprovePostsRow;

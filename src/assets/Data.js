@@ -13,12 +13,12 @@ export const SidebarData = [
     },
     {
         title: "Manage Publish Post",
-        href: "mpposts",
+        href: "approveposts",
         icon: faSignsPost,
     }, 
     {
         title: "Manage UnPublish Post",
-        href: "munaposts",
+        href: "unapproveposts",
         icon: faDraftingCompass,
     },
 ];
