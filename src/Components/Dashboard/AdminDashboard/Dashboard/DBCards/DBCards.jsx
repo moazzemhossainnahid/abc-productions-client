@@ -1,18 +1,13 @@
-import { faArrowAltCircleRight, faBank, faMoneyCheckAlt, faPenToSquare, faReceipt, faRoadLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight, faPenToSquare, faRoadLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const DBCards = () => {
 
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
-    const [accounts, setAccounts] = useState([]);
-    const [transactions, setTransactions] = useState([]);
-    const [todayTrnsaction, setTodayTransaction] = useState(0)
-
-    let today = new Date();
-    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/v1/users')
@@ -22,38 +17,27 @@ const DBCards = () => {
 
 
     useEffect(() => {
-        fetch('https://online-bank-of-bd-server.vercel.app/allaccounts')
+        fetch('http://localhost:5000/api/v1/posts')
             .then(res => res.json())
-            .then(data => setAccounts(data))
+            .then(data => setPosts(data))
     }, [])
 
+    // console.log(posts);
 
-    const TotalBalance = accounts?.map(a => a.balance)
-        .reduce((a, b) => {
-            return a + b;
-        }, 0);
+    const approvePosts = posts && posts.filter(p => p.status === "approve");
+    const unapprovePosts = posts && posts.filter(p => p.status === "unapprove");
 
-    useEffect(() => {
-        fetch('https://online-bank-of-bd-server.vercel.app/statements')
-            .then(res => res.json())
-            .then(data => setTransactions(data))
-    }, [])
 
-    useEffect(() => {
-        const todayDeposit = transactions
-            .filter((transaction) => transaction.date === date)
-            .map((account) => account.deposit)
-            .reduce((a, b) => (a + b), 0);
+    // const TotalBalance = accounts?.map(a => a.balance)
+    //     .reduce((a, b) => {
+    //         return a + b;
+    //     }, 0);
 
-        const todayWidthdraw = transactions
-            .filter((transaction) => transaction.date === date)
-            .map((account) => account.withdraw)
-            .reduce((a, b) => (a + b), 0);
-
-        const todayTransaction = todayDeposit + todayWidthdraw;
-        setTodayTransaction(todayTransaction)
-    }, [transactions, date])
-
+    // useEffect(() => {
+    //     fetch('https://online-bank-of-bd-server.vercel.app/statements')
+    //         .then(res => res.json())
+    //         .then(data => setTransactions(data))
+    // }, [])
 
 
     return (
@@ -64,7 +48,7 @@ const DBCards = () => {
                     <div className="flex items-center justify-between bg-rose-300 p-3 rounded-t-xl">
                         <div className="">
                             <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{users?.length}</h3>
-                            <h3 className="text-md font-bold text-white">Registered Users</h3>
+                            <h3 className="text-md font-bold text-white">Total Registered Users</h3>
                         </div>
                         <div className="">
                             <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faUserPlus} />
@@ -78,8 +62,8 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#17A2BB] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{accounts?.length}</h3>
-                            <h3 className="text-md font-bold text-white">Total Publish Post</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{approvePosts?.length}</h3>
+                            <h3 className="text-md font-bold text-white">Total Approve Post</h3>
                         </div>
                         <div className="">
                             <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faPenToSquare} />
@@ -93,32 +77,18 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#28A745] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance?.toFixed(0)}</h3>
-                            <h3 className="text-md font-bold text-white">Total UnPublish Post</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{unapprovePosts?.length} </h3>
+                            <h3 className="text-md font-bold text-white">Total UnApprove Post</h3>
                         </div>
                         <div className="">
                             <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faRoadLock} />
                         </div>
                     </div>
-                    <div onClick={() => navigate('/cpanel/munposts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
+                    <div onClick={() => navigate('/cpanel/munaposts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
                 </div>
-                {/* Todays Transactions
-                <div className="">
-                    <div className="flex items-center justify-between bg-[#DC3545] p-3 rounded-t-xl">
-                        <div className="">
-                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {todayTrnsaction}</h3>
-                            <h3 className="text-md font-bold text-white">Todays Transactions</h3>
-                        </div>
-                        <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faReceipt} />
-                        </div>
-                    </div>
-                    <div onClick={() => navigate('/cpanel/thistory')} className="bg-[#bd1122] cursor-pointer py-2 text-center rounded-b-xl">
-                        <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
-                    </div>
-                </div> */}
+
             </div>
 
         </div>
