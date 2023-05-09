@@ -19,6 +19,7 @@ import Publish from './Components/Dashboard/UserDashboard/Publish/Publish';
 import Posts from './Components/Posts/Posts';
 import SinglePost from './Components/Posts/SinglePost/SinglePost';
 import ApprovePosts from './Components/Dashboard/AdminDashboard/ManagePosts/ApprovePosts';
+import MyPost from './Components/Dashboard/UserDashboard/myPost/MyPost';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
           {/* User Routes */}
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+          <Route path="/mypost" element={<RequireAuth><MyPost /></RequireAuth>} />
           <Route path="/publish" element={<RequireAuth><Publish /></RequireAuth>} />
 
 

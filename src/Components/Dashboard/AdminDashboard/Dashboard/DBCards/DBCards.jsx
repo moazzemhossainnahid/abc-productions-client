@@ -69,7 +69,7 @@ const DBCards = () => {
                             <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faPenToSquare} />
                         </div>
                     </div>
-                    <div onClick={() => navigate('/cpanel/mposts')} className="bg-[#0c93ab] cursor-pointer py-2 text-center rounded-b-xl">
+                    <div onClick={() => navigate('/cpanel/approveposts')} className="bg-[#0c93ab] cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ const DBCards = () => {
                             <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faRoadLock} />
                         </div>
                     </div>
-                    <div onClick={() => navigate('/cpanel/munaposts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
+                    <div onClick={() => navigate('/cpanel/unapproveposts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
                         <h2 className="text-md text-white">More Info <FontAwesomeIcon className='pl-2' icon={faArrowAltCircleRight} /> </h2>
                     </div>
                 </div>
