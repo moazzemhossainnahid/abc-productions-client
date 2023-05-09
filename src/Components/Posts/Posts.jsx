@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PostHeader from '../common/PostHeader';
 import { blogList } from '../../assets/BlogData';
 import EmptyList from '../common/EmptyList';
@@ -7,9 +7,15 @@ import SearchBar from '../common/SearchBar';
 import PostList from './PostList';
 
 const Posts = () => {
-    const [blogs, setBlogs] = useState(blogList);
+    // const [blogs, setBlogs] = useState(blogList);
     const [searchKey, setSearchKey] = useState('');
+    const [blogs, setBlogs] = useState([]);
 
+    useEffect(() => {
+        fetch('http://localhost:5000/api/v1/posts')
+            .then(res => res.json())
+            .then(data => setBlogs(data))
+    }, [])
     // Search submit
     const handleSearchBar = (e) => {
         e.preventDefault();
@@ -48,7 +54,7 @@ const Posts = () => {
             />
 
             {/* Blog List & Empty View */}
-            {!blogs.length ? <EmptyList /> : <PostList blogs={blogs} />}
+            {!blogs?.length ? <EmptyList /> : <PostList blogs={blogs} />}
         </div>
     );
 };

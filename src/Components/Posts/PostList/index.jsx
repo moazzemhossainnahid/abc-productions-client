@@ -5,7 +5,7 @@ const PostList = ({ blogs }) => {
   return (
     <div className='blogList-wrap w-11/12 md:w-5-6 mx-auto pb-20'>
       {blogs?.map((blog) => (
-        <PostItem key={blog?.id} blog={blog} />
+        <PostItem key={blog?._id} blog={blog} />
       ))}
     </div>
   );

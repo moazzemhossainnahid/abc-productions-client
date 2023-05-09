@@ -3,20 +3,29 @@ import { useParams } from 'react-router';
 
 import './styles.css';
 import { Link } from 'react-router-dom';
-import { blogList } from '../../../assets/BlogData';
+// import { blogList } from '../../../assets/BlogData';
 import Chip from '../../common/Chip';
 import EmptyList from '../../common/EmptyList';
 
 const SinglePost = () => {
     const { id } = useParams();
     const [blog, setBlog] = useState(null);
+    const [pst, setPst] = useState(null);
 
     useEffect(() => {
-        let blog = blogList.find((blog) => blog.id === parseInt(id));
+        fetch('http://localhost:5000/api/v1/posts')
+            .then(res => res.json())
+            .then(data => setPst(data))
+    }, [])
+
+    useEffect(() => {
+        let blog = pst?.find((blog) => blog._id === id);
         if (blog) {
             setBlog(blog);
         }
-    }, [id]);
+    }, [pst,id]);
+
+    console.log(blog);
 
     return (
         <>

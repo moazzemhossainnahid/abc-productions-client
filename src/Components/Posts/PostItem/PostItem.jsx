@@ -12,7 +12,7 @@ const PostItem = ({
       authorAvatar,
       cover,
       category,
-      id,
+      _id,
     },
   }) => {
     return (
@@ -29,7 +29,7 @@ const PostItem = ({
               <p>{createdAt}</p>
             </div>
           </div>
-          <Link className='blogItem-link text-xl' to={`/post/${id}`}>
+          <Link className='blogItem-link text-xl' to={`/post/${_id}`}>
             ➝
           </Link>
         </footer>

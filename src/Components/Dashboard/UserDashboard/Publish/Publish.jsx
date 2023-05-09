@@ -199,7 +199,7 @@ const Publish = () => {
                         <div className="flex items-center justify-center w-full">
                             <button
                                 type="submit"
-                                className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-secondary rounded hover:bg-primary focus:ring-2 focus:ring-offset-2 focus:ring-secondary focus:outline-none"
+                                className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-warning rounded hover:bg-primary focus:ring-2 focus:ring-offset-2 focus:ring-secondary focus:outline-none"
                             >
                                 Add Post
                             </button>
