@@ -8,7 +8,7 @@ const useProfile = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/users/${email}`)
+        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/${email}`)
             .then(res => res.json())
             .then(data => setProfile(data))
     }, [email]);

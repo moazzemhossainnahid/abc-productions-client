@@ -51,7 +51,7 @@ const Publish = () => {
                     console.log(postData);
 
                     // Post to database
-                    fetch(`http://localhost:5000/api/v1/posts`, {
+                    fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

@@ -5,7 +5,7 @@ const UserDetails = ({ user, index }) => {
     const { _id, email, role } = user;
 
     const handleMakeAdmin = () => {
-        fetch(`http://localhost:5000/api/v1/users/admin/${email}`, {
+        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -24,7 +24,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveAdmin = () => {
-        fetch(`http://localhost:5000/api/v1/users/admin/remove/${email}`, {
+        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/admin/remove/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -40,7 +40,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveUser = (id) => {
-        fetch(`http://localhost:5000/api/v1/users/${id}`, {
+        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
