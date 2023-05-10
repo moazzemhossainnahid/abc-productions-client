@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import PostHeader from '../common/PostHeader';
-import { blogList } from '../../assets/BlogData';
+// import { blogList } from '../../assets/BlogData';
 import EmptyList from '../common/EmptyList';
 import SearchBar from '../common/SearchBar';
 import PostList from './PostList';
@@ -9,12 +9,12 @@ import PostList from './PostList';
 const Posts = () => {
     // const [blogs, setBlogs] = useState(blogList);
     const [searchKey, setSearchKey] = useState('');
-    const [blogs, setBlogs] = useState([]);
+    const [blg, setBlg] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/v1/posts')
             .then(res => res.json())
-            .then(data => setBlogs(data))
+            .then(data => setBlg(data))
     }, [])
     // Search submit
     const handleSearchBar = (e) => {
@@ -22,22 +22,28 @@ const Posts = () => {
         handleSearchResults();
     };
 
+    const blogs = blg && blg?.filter(b => b?.status === 'approve');
+
     console.log(blogs);
 
     // Search for blog by category
     const handleSearchResults = () => {
-        const allBlogs = blogList;
-        const filteredBlogs = allBlogs.filter((blog) =>
-            blog.category.toLowerCase().includes(searchKey.toLowerCase().trim()) ||
-            blog.title.toLowerCase().includes(searchKey.toLowerCase().trim())
-        );
-        setBlogs(filteredBlogs);
+        const allBlogs = blogs;
+        if (searchKey.length > 0) {
+            const filteredBlogs = allBlogs.filter((blog) =>
+                blog.category.toLowerCase().includes(searchKey.toLowerCase().trim()) ||
+                blog.title.toLowerCase().includes(searchKey.toLowerCase().trim())
+            );
+            setBlg(filteredBlogs);
+        } else {
+            setBlg(allBlogs)
+        }
     };
 
     // Clear search and show all blogs
     const handleClearSearch = () => {
-        setBlogs(blogList);
         setSearchKey('');
+        setBlg(blogs);
     };
 
     return (

@@ -34,7 +34,7 @@ const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
                 <div className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <label htmlFor="approve-post-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h1 className='mb-4 badge badge-info badge-md font-semibold text-white px-5 py-3'>Review  <span className="text-rose-700 px-2">{title}</span>'s Post</h1>
+                        <h1 className='mb-4 badge badge-info h-12 badge-md font-semibold text-white px-5 py-3'>Review  <span className="text-rose-700 px-2">{title}</span>'s Post</h1>
                         <div className="flex w-full mx-auto items-center justify-center h-full">
                             <div className="flex flex-col md:flex-row gap-2 items-center w-full rounded-lg bg-white shadow-lg">
                                 <div className="w-4/5 p-5 md:w-3/5 mx-auto">
