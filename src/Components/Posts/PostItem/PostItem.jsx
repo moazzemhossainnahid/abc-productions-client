@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import Chip from '../../common/Chip';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 const PostItem = ({
     blog: {
@@ -35,6 +36,10 @@ const PostItem = ({
         </footer>
       </div>
     );
+};
+
+PostItem.propTypes = {
+  myProp: PropTypes.string.isRequired, // Add the missing prop type validation
 };
 
 export default PostItem;

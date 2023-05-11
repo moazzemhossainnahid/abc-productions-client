@@ -9,7 +9,7 @@ const AboutUS = () => {
             <div className='w-full h-full'>
                 <AboutusBanner></AboutusBanner>
                 <AboutMission />
-                <AboutInfo></AboutInfo>
+                {/* <AboutInfo></AboutInfo> */}
             </div>
         </>
     );
