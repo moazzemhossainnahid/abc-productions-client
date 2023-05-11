@@ -9,42 +9,66 @@ import PostList from './PostList';
 const Posts = () => {
     // const [blogs, setBlogs] = useState(blogList);
     const [searchKey, setSearchKey] = useState('');
-    const [blg, setBlg] = useState([]);
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
+    const [allBlogs, setAllBlogs] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/v1/posts')
             .then(res => res.json())
-            .then(data => setBlg(data))
+            .then(data => setAllBlogs(data.filter(b => b?.status === 'approve')))
     }, [])
+
+    useEffect(() => {
+        setFilteredBlogs(allBlogs)
+    }, [allBlogs])
+
+    
+
     // Search submit
     const handleSearchBar = (e) => {
         e.preventDefault();
         handleSearchResults();
     };
 
-    const blogs = blg && blg?.filter(b => b?.status === 'approve');
+    // const allBlogs = blg && blg?.filter(b => b?.status === 'approve');
 
-    console.log(blogs);
+    console.log(allBlogs);
 
     // Search for blog by category
     const handleSearchResults = () => {
-        const allBlogs = blogs;
+        console.log(searchKey.length);
         if (searchKey.length > 0) {
-            const filteredBlogs = allBlogs.filter((blog) =>
+            const result = allBlogs.filter((blog) =>
                 blog.category.toLowerCase().includes(searchKey.toLowerCase().trim()) ||
                 blog.title.toLowerCase().includes(searchKey.toLowerCase().trim())
             );
-            setBlg(filteredBlogs);
+            setFilteredBlogs(result);
         } else {
-            setBlg(allBlogs)
+            setFilteredBlogs(allBlogs)
         }
+
     };
 
     // Clear search and show all blogs
     const handleClearSearch = () => {
         setSearchKey('');
-        setBlg(blogs);
+        console.log("clear");
+        setFilteredBlogs(allBlogs);
     };
+
+
+
+    //   // Load Courses By Filter Type
+    //   let blogs;
+
+    //   if (searchKey?.length > 0) {
+    //     blogs = filteredBlogs
+    //   }
+    //   else {
+    //     blogs = allBlogs
+    //   };
+
+    const blogs = filteredBlogs;
 
     return (
         <div>
