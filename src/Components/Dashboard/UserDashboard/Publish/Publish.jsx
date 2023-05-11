@@ -10,8 +10,17 @@ const Publish = () => {
 
     const authorAvatar = user?.photoURL ? user?.photoURL : "https://www.shareicon.net/data/2016/05/26/771188_man_512x512.png";
 
+    function getMonthName(monthNumber) {
+        const date = new Date();
+        date.setMonth(monthNumber - 1);
+
+        return date.toLocaleString('en-US', { month: 'long' });
+    }
+
     let today = new Date();
-    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+    let date = (getMonthName(today.getMonth() + 1)) + ' ' + today.getDate() + ',' + today.getFullYear();
+
+    console.log(date);
 
     const handlePublishPost = (data) => {
         const {
@@ -51,7 +60,7 @@ const Publish = () => {
                     console.log(postData);
 
                     // Post to database
-                    fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {
+                    fetch(`http://localhost:5000/api/v1/posts`, {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
