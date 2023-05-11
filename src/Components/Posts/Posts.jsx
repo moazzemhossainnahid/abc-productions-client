@@ -13,7 +13,7 @@ const Posts = () => {
     const [allBlogs, setAllBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/posts')
+        fetch('https://attractive-shrimp.cyclic.app/api/v1/posts')
             .then(res => res.json())
             .then(data => setAllBlogs(data.filter(b => b?.status === 'approve')))
     }, [])
