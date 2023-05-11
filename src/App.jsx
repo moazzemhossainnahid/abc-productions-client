@@ -28,7 +28,7 @@ function App() {
     <>
       <div className="App pt-20">
         {/* <Header /> */}
-        {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/mposts' && window.location.pathname !== '/cpanel/munaposts') && <Header />}
+        {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/approveposts' && window.location.pathname !== '/cpanel/unapproveposts') && <Header />}
         <Routes>
           <Route path="/" element={<Posts />} />
           <Route path='/post/:id' element={<RequireAuth><SinglePost/></RequireAuth>} />
@@ -53,7 +53,7 @@ function App() {
             <Route path="unapproveposts" element={<UnapprovePosts />} />
           </Route>
         </Routes>
-        {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/mposts' && window.location.pathname !== '/cpanel/munaposts') && <Footer />}
+        {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/approveposts' && window.location.pathname !== '/cpanel/unapproveposts') && <Footer />}
         {/* <Footer /> */}
         <ToastContainer />
       </div>
