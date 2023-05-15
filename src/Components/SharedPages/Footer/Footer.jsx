@@ -154,7 +154,7 @@ const Footer = () => {
           </div>
           <div className="text-center p-6 bg-black">
             <span>© {new Date().getFullYear()} Copyright: </span>
-            <span onClick={() => navigate('/')} className=" text-white font-semibold"> ABC Publications</span>
+            <span onClick={() => navigate('/')} className=" text-white font-semibold tracking-widest"> ABC Publications</span>
           </div>
         </footer>
       </div>
