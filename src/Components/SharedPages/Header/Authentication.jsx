@@ -16,7 +16,6 @@ const Authentication = () => {
         await signOut(auth)
             .then(() => {
                 localStorage.removeItem('accessToken');
-
                 navigate('/signin');
                 toast.success("User SignOut Successfully", { position: "top-left" });
 

@@ -32,11 +32,11 @@ const Posts = () => {
 
     // const allBlogs = blg && blg?.filter(b => b?.status === 'approve');
 
-    console.log(allBlogs);
+    // console.log(allBlogs);
 
     // Search for blog by category
     const handleSearchResults = () => {
-        console.log(searchKey.length);
+        // console.log(searchKey.length);
         if (searchKey.length > 0) {
             const result = allBlogs.filter((blog) =>
                 blog.category.toLowerCase().includes(searchKey.toLowerCase().trim()) ||
@@ -52,7 +52,7 @@ const Posts = () => {
     // Clear search and show all blogs
     const handleClearSearch = () => {
         setSearchKey('');
-        console.log("clear");
+        // console.log("clear");
         setFilteredBlogs(allBlogs);
     };
 

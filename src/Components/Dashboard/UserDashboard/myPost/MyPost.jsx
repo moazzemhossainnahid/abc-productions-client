@@ -14,7 +14,7 @@ const MyPost = () => {
 
     const myPosts = posts && posts.filter(p => p?.authorEmail === user?.email);
 
-    console.log(myPosts);
+    // console.log(myPosts);
 
     return (
         <div className='container'>

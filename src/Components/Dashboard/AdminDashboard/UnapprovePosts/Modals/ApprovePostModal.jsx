@@ -5,7 +5,7 @@ const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
 
     const {title, authorName, category, status,cover,authorEmail, _id} = unApprovePost;
 
-    console.log(unApprovePost);
+    // console.log(unApprovePost);
 
 
     const handleApprove = (id) =>{

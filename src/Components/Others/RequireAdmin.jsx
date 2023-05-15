@@ -15,7 +15,7 @@ const RequireAdmin = ({ children }) => {
     return <Loading />;
   }
 
-  console.log(admin);
+  // console.log(admin);
 
   if (!user || !admin) {
     signOut(auth);

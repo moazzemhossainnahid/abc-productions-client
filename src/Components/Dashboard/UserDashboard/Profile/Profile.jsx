@@ -62,7 +62,7 @@ const Profile = () => {
 
     }
 
-    console.log(profile);
+    // console.log(profile);
 
     return (
         <section className='bg-gradient-to-l from-secondary to-accent h-full w-full'>

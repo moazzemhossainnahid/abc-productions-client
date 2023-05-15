@@ -19,7 +19,7 @@ const Header = () => {
         { name: 'Contact', to: '/contactus' }
     ];
 
-    console.log(user);
+    // console.log(user);
 
     let [open, setOpen] = useState(false);
     return (

@@ -7,7 +7,7 @@ const UseAdmin = () => {
     const [admin , setAdmin] = useState(false);
     const [adminLoading , setAdminLoading] = useState(true);
 
-  console.log(admin);
+//   console.log(admin);
     useEffect( () => {
         const email = user?.email; 
         fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/isAdmin/${email}`, {
@@ -19,9 +19,9 @@ const UseAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            setAdmin(data.role === true)
-            setAdminLoading(false)
+            // console.log(data);
+            setAdmin(data.role === true);
+            setAdminLoading(false);
         })
 
     },[user]);

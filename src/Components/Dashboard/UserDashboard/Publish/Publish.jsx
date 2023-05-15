@@ -20,7 +20,7 @@ const Publish = () => {
     let today = new Date();
     let date = (getMonthName(today.getMonth() + 1)) + ' ' + today.getDate() + ',' + today.getFullYear();
 
-    console.log(date);
+    // console.log(date);
 
     const handlePublishPost = (data) => {
         const {
@@ -57,7 +57,7 @@ const Publish = () => {
                         cover: img,
                     };
 
-                    console.log(postData);
+                    // console.log(postData);
 
                     // Post to database
                     fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {

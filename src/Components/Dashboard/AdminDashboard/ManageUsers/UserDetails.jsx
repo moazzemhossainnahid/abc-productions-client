@@ -16,7 +16,7 @@ const UserDetails = ({ user, index }) => {
                 return res.json()
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     toast('Successfully Make an Admin')
                 }
@@ -49,7 +49,7 @@ const UserDetails = ({ user, index }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.deletedCount > 0) {
                     toast('Successfully Remove an User')
                 }

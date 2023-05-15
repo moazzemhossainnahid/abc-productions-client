@@ -25,7 +25,7 @@ const SinglePost = () => {
         }
     }, [pst,id]);
 
-    console.log(blog);
+    // console.log(blog);
 
     return (
         <>
