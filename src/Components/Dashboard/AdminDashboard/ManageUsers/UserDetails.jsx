@@ -9,55 +9,63 @@ const UserDetails = ({ user, index }) => {
     console.log(admin);
 
     const handleMakeAdmin = () => {
-        fetch(`http://localhost:5000/api/v1/users/admin/${email}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => {
-                return res.json()
-            })
-            .then(data => {
-                // console.log(data);
-                if (data.modifiedCount > 0) {
-                    toast('Successfully Make an Admin')
+        if (admin) {
+            fetch(`http://localhost:5000/api/v1/users/admin/${email}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
+                .then(res => {
+                    return res.json()
+                })
+                .then(data => {
+                    // console.log(data);
+                    if (data.modifiedCount > 0) {
+                        toast('Successfully Make an Admin')
+                    }
+                })
+        }
     }
 
     const handleRemoveAdmin = () => {
-        fetch(`http://localhost:5000/api/v1/users/admin/remove/${email}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    toast('Successfully Remove an Admin')
+        if (admin) {
+            fetch(`http://localhost:5000/api/v1/users/admin/remove/${email}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount > 0) {
+                        toast('Successfully Remove an Admin');
+                        window.location.reload();
+                    }
+                })
+        }
+
     }
 
     const handleRemoveUser = (id) => {
-        fetch(`http://localhost:5000/api/v1/users/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.deletedCount > 0) {
-                    toast('Successfully Remove an User')
+        if (admin) {
+            fetch(`http://localhost:5000/api/v1/users/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast('Successfully Remove an User')
+                    }
+                })
+        }
     }
 
     return (
@@ -77,7 +85,7 @@ const UserDetails = ({ user, index }) => {
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                {(role !== 'admin' && role !== "superadmin") ? <button onClick={() => handleRemoveUser(_id)} className="btn btn-xs btn-outline btn-natural">Remove User</button> :  <button disabled={role === "superadmin"} onClick={handleRemoveAdmin} className={` ${role === "superadmin" ? "disabled text-xs" : "btn btn-xs btn-outline btn-secondary"}`}>{`${role === "superadmin" ? "SuperAdmin Can't Deleted" : "Remove Admin"}`}</button>}
+                {(role !== 'admin' && role !== "superadmin") ? <button onClick={() => handleRemoveUser(_id)} className="btn btn-xs btn-outline btn-natural">Remove User</button> : <button disabled={role === "superadmin"} onClick={handleRemoveAdmin} className={` ${role === "superadmin" ? "disabled text-xs" : "btn btn-xs btn-outline btn-secondary"}`}>{`${role === "superadmin" ? "SuperAdmin Can't Deleted" : "Remove Admin"}`}</button>}
             </td>
         </tr>
 
