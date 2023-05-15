@@ -1,11 +1,15 @@
 
 import { toast } from 'react-toastify';
+import UseAdmin from '../../../../Hooks/useAdmin';
 
 const UserDetails = ({ user, index }) => {
     const { _id, email, role } = user;
+    const [admin] = UseAdmin();
+
+    console.log(admin);
 
     const handleMakeAdmin = () => {
-        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/admin/${email}`, {
+        fetch(`http://localhost:5000/api/v1/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -24,7 +28,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveAdmin = () => {
-        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/admin/remove/${email}`, {
+        fetch(`http://localhost:5000/api/v1/users/admin/remove/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -40,7 +44,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveUser = (id) => {
-        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/${id}`, {
+        fetch(`http://localhost:5000/api/v1/users/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -69,11 +73,11 @@ const UserDetails = ({ user, index }) => {
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                {(role === 'admin' || role === "superadmin") ? <div className="badge text-blue-700 badge-outline">Admin</div> : <button onClick={handleMakeAdmin} className="btn btn-xs btn-outline btn-primary">Make Admin</button>}
+                {(role === 'admin' || role === "superadmin") ? <div className="badge text-blue-700 badge-outline">{`${(role === "superadmin" && "Super Admin") || (role === "admin" && "Admin")}`}</div> : <button onClick={handleMakeAdmin} className="btn btn-xs btn-outline btn-primary">Make Admin</button>}
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                {role !== 'admin' ? <button onClick={() => handleRemoveUser(_id)} className="btn btn-xs btn-outline btn-natural">Remove User</button> : <button onClick={handleRemoveAdmin} className="btn btn-xs btn-outline btn-secondary">Remove Admin</button>}
+                {(role !== 'admin' && role !== "superadmin") ? <button onClick={() => handleRemoveUser(_id)} className="btn btn-xs btn-outline btn-natural">Remove User</button> :  <button disabled={role === "superadmin"} onClick={handleRemoveAdmin} className={` ${role === "superadmin" ? "disabled text-xs" : "btn btn-xs btn-outline btn-secondary"}`}>{`${role === "superadmin" ? "SuperAdmin Can't Deleted" : "Remove Admin"}`}</button>}
             </td>
         </tr>
 
