@@ -29,16 +29,19 @@ const Publish = () => {
             subCategory,
             authorName,
             authorEmail,
-            description,
+            description
         } = data;
 
+        console.log(data);
+
         const image = data.image[0];
-        const formData = new FormData();
-        formData.append("image", image);
+        const resource = data.resource[0];
+        const imgData = new FormData();
+        imgData.append("image", image);
         const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
         fetch(url, {
             method: "POST",
-            body: formData,
+            body: imgData,
         })
             .then((res) => res.json())
             .then((result) => {
@@ -53,20 +56,36 @@ const Publish = () => {
                         authorAvatar: authorAvatar,
                         authorEmail: authorEmail,
                         description: description,
+                        resource: resource,
                         createdAt: date,
                         cover: img,
                     };
 
+                    const formData = new FormData();
+                    formData.append("title", title); 
+                    formData.append("category", category); 
+                    formData.append("subCategory", subCategory); 
+                    formData.append("authorName", authorName); 
+                    formData.append("authorAvatar", authorAvatar); 
+                    formData.append("authorEmail", authorEmail); 
+                    formData.append("description", description); 
+                    formData.append("createdAt", date); 
+                    formData.append("resource", resource); 
+                    formData.append("cover", img); 
+
                     // console.log(postData);
+                    console.log(formData);
 
                     // Post to database
-                    fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {
+                    fetch(`http://localhost:5000/api/v1/posts`, {
                         method: "POST",
                         headers: {
+                            "Access-Control-Allow-Origin": "*",
                             "content-type": "application/json",
                             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                         },
-                        body: JSON.stringify(postData),
+                        // body: JSON.stringify(postData),
+                        body: formData,
                     })
                         .then((res) => res.json())
                         .then((data) => {
@@ -188,6 +207,23 @@ const Publish = () => {
                             </div>
                         </div>
 
+                        <div className="w-full mt-12">
+                        <div className="w-full flex flex-col mt-4">
+                                <label className="text-base font-semibold leading-none text-gray-800">
+                                    Add a Resource
+                                </label>
+                                <input
+                                    {...register("resource")}
+                                    required
+                                    tabIndex={0}
+                                    readOnly
+                                    arial-label="Please input resource"
+                                    type="file"
+                                    className="text-base  leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-400"
+                                    placeholder="Please input resource"
+                                />
+                            </div>
+                        </div>
                         <div>
                             <div className="w-full flex flex-col mt-8">
                                 <label className="text-base font-semibold leading-none text-gray-800">
