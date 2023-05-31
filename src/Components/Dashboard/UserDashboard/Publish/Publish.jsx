@@ -65,7 +65,9 @@ const Publish = () => {
                     fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {
                         method: "POST",
                         headers: {
+                            'Accept': 'application/json',
                             "Access-Control-Allow-Origin": "*",
+                            "content-type": "multipart/form-data",
                             // "content-type": "application/json",
                             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                         },
