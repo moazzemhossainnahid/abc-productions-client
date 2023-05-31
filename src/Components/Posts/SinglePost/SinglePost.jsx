@@ -17,14 +17,14 @@ const SinglePost = () => {
     const [rcsPath, setRchPath] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/posts')
+        fetch('https://attractive-shrimp.cyclic.app/api/v1/posts')
             .then(res => res.json())
             .then(data => setPst(data))
     }, [])
 
     useEffect(() => {
         let blog = pst?.find((blog) => blog._id === id);
-        setRchPath('http://localhost:5000/public/images/' + blog?.resource);
+        setRchPath('https://attractive-shrimp.cyclic.app/public/images/' + blog?.resource);
         if (blog) {
             setBlog(blog);
         }
@@ -56,7 +56,7 @@ const SinglePost = () => {
                         <div className="">
                             <p className='blog-desc'>{blog.description}</p>
                             <div className="">
-                            {rcsPath !== "http://localhost:5000/public/images/undefined" && (
+                            {rcsPath !== "https://attractive-shrimp.cyclic.app/public/images/undefined" && (
                                     <PDFViewer url={rcsPath} />
                                 )}
                             </div>
