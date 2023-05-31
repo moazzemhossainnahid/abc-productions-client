@@ -48,19 +48,6 @@ const Publish = () => {
                 if (result.success) {
                     const img = result.data.url;
 
-                    const postData = {
-                        title: title,
-                        category: category,
-                        subCategory: subCategory,
-                        authorName: authorName,
-                        authorAvatar: authorAvatar,
-                        authorEmail: authorEmail,
-                        description: description,
-                        resource: resource,
-                        createdAt: date,
-                        cover: img,
-                    };
-
                     const formData = new FormData();
                     formData.append("title", title); 
                     formData.append("category", category); 
@@ -73,15 +60,13 @@ const Publish = () => {
                     formData.append("resource", resource); 
                     formData.append("cover", img); 
 
-                    // console.log(postData);
-                    console.log(formData);
 
                     // Post to database
                     fetch(`http://localhost:5000/api/v1/posts`, {
                         method: "POST",
                         headers: {
                             "Access-Control-Allow-Origin": "*",
-                            "content-type": "application/json",
+                            // "content-type": "application/json",
                             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                         },
                         // body: JSON.stringify(postData),
@@ -208,9 +193,9 @@ const Publish = () => {
                         </div>
 
                         <div className="w-full mt-12">
-                        <div className="w-full flex flex-col mt-4">
+                            <div className="w-full flex flex-col mt-4">
                                 <label className="text-base font-semibold leading-none text-gray-800">
-                                    Add a Resource
+                                    Add a Resource <span className="text-red-500 text-xs">(use only PDF format file <sup>*</sup>)</span>
                                 </label>
                                 <input
                                     {...register("resource")}
