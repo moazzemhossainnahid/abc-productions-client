@@ -6,13 +6,7 @@ import { Link } from 'react-router-dom';
 // import { blogList } from '../../../assets/BlogData';
 import Chip from '../../common/Chip';
 import EmptyList from '../../common/EmptyList';
-import { Viewer, Worker } from '@react-pdf-viewer/core';
-// Import the styles
-import '@react-pdf-viewer/core/lib/styles/index.css';
-// default layout plugin
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-// Import styles of default layout plugin
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+
 import PDFViewer from '../../Others/PDFViewer';
 
 
@@ -38,8 +32,6 @@ const SinglePost = () => {
 
     // console.log(blog);
     console.log(rcsPath);
-    // creating new plugin instance
-    const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
     return (
         <>
@@ -64,7 +56,7 @@ const SinglePost = () => {
                         <div className="">
                             <p className='blog-desc'>{blog.description}</p>
                             <div className="">
-                                {rcsPath && (
+                            {rcsPath !== "http://localhost:5000/public/images/undefined" && (
                                     <PDFViewer url={rcsPath} />
                                 )}
                             </div>

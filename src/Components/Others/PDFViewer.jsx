@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
-import { Worker } from '@react-pdf-viewer/core';
-// Import the main component
-import { Viewer } from '@react-pdf-viewer/core';
-
-// Import the styles
-import '@react-pdf-viewer/core/lib/styles/index.css';
-
 
 const PDFViewer = ({ url }) => {
+    const handleDownload = () => {
+        // Perform any necessary operations before the download
+        // For example, fetch the PDF file from an API
 
+        // Create a link element
+        const link = document.createElement('a');
+        link.href = url; // Replace with the actual path to your PDF file
+        link.download = url; // Replace with the desired filename for the downloaded file
+        link.target = '_blank';
+
+        // Trigger the download
+        link.click();
+    };
     return (
-        <div>
-            <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-                <Viewer fileUrl={url} />
-            </Worker>
+        <div className='w-full mx-auto'>
+            <button className='btn btn-outline mx-auto flex gap-3 justify-center items-center px-7 py-2 rounded' onClick={handleDownload}>
+               <span className="w-5"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png" alt="" className="w-5" /></span>
+               <span className=""> Download Resources </span>
+            </button>
         </div>
     );
 };
