@@ -56,10 +56,10 @@ const SinglePost = () => {
                         <div className="">
                             <p className='blog-desc'>{blog.description}</p>
                             <div className="">
-                            {/* {rcsPath !== "https://attractive-shrimp.cyclic.app/public/images/undefined" && (
+                                {/* {rcsPath !== "https://attractive-shrimp.cyclic.app/public/images/undefined" && (
                                     <PDFViewer url={rcsPath} />
                                 )} */}
-                            {blog?.resource && (
+                                {blog?.resource && (
                                     <PDFViewer url={blog?.resource} />
                                 )}
                             </div>
