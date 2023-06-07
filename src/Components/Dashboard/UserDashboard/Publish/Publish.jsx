@@ -42,6 +42,7 @@ const Publish = () => {
         const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
         fetch(url, {
             method: "POST",
+            mode:"no-cors",
             body: imgData,
         })
             .then((res) => res.json())
