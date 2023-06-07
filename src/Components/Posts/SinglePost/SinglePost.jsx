@@ -14,7 +14,7 @@ const SinglePost = () => {
     const { id } = useParams();
     const [blog, setBlog] = useState(null);
     const [pst, setPst] = useState(null);
-    const [rcsPath, setRchPath] = useState('');
+    // const [rcsPath, setRchPath] = useState('');
 
     useEffect(() => {
         fetch('https://attractive-shrimp.cyclic.app/api/v1/posts')
@@ -24,14 +24,14 @@ const SinglePost = () => {
 
     useEffect(() => {
         let blog = pst?.find((blog) => blog._id === id);
-        setRchPath('https://attractive-shrimp.cyclic.app/public/images/' + blog?.resource);
+        // setRchPath('https://attractive-shrimp.cyclic.app/public/images/' + blog?.resource);
         if (blog) {
             setBlog(blog);
         }
     }, [pst, id]);
 
     // console.log(blog);
-    console.log(rcsPath);
+    // console.log(rcsPath);
 
     return (
         <>
@@ -56,8 +56,11 @@ const SinglePost = () => {
                         <div className="">
                             <p className='blog-desc'>{blog.description}</p>
                             <div className="">
-                            {rcsPath !== "https://attractive-shrimp.cyclic.app/public/images/undefined" && (
+                            {/* {rcsPath !== "https://attractive-shrimp.cyclic.app/public/images/undefined" && (
                                     <PDFViewer url={rcsPath} />
+                                )} */}
+                            {blog?.resource && (
+                                    <PDFViewer url={blog?.resource} />
                                 )}
                             </div>
                         </div>
