@@ -29,13 +29,14 @@ const Publish = () => {
             subCategory,
             authorName,
             authorEmail,
-            description
+            description,
+            resource
         } = data;
 
         console.log(data);
 
         const image = data.image[0];
-        const resource = data.resource[0];
+        // const resource = data.resource[0];
         const imgData = new FormData();
         imgData.append("image", image);
         const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
@@ -48,33 +49,47 @@ const Publish = () => {
                 if (result.success) {
                     const img = result.data.url;
 
-                    const formData = new FormData();
-                    formData.append("title", title); 
-                    formData.append("category", category); 
-                    formData.append("subCategory", subCategory); 
-                    formData.append("authorName", authorName); 
-                    formData.append("authorAvatar", authorAvatar); 
-                    formData.append("authorEmail", authorEmail); 
-                    formData.append("description", description); 
-                    formData.append("createdAt", date); 
-                    formData.append("resource", resource); 
-                    formData.append("cover", img); 
+                    // const formData = new FormData();
+                    // formData.append("title", title);
+                    // formData.append("category", category);
+                    // formData.append("subCategory", subCategory);
+                    // formData.append("authorName", authorName);
+                    // formData.append("authorAvatar", authorAvatar);
+                    // formData.append("authorEmail", authorEmail);
+                    // formData.append("description", description);
+                    // formData.append("createdAt", date);
+                    // formData.append("resource", resource);
+                    // formData.append("cover", img);
 
+                    const postData = {
+                        title:title,
+                        category:category,
+                        subCategory:subCategory,
+                        authorName:authorName,
+                        authorAvatar:authorAvatar,
+                        authorEmail:authorEmail,
+                        description:description,
+                        createdAt:date,
+                        resource:resource,
+                        cover:img,
+                    }
+
+                    console.log(postData);
 
                     // Post to database
                     fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {
                         method: "POST",
-                        // headers: {
-                        //     "Access-Control-Allow-Origin": "*",
-                        //     // "content-type": "application/json",
-                        //     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                        // },
-                        // body: JSON.stringify(postData),
-                        body: formData,
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "content-type": "application/json",
+                            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                        },
+                        body: JSON.stringify(postData),
+                        // body: formData,
                     })
                         .then((res) => res.json())
                         .then((data) => {
-                            // console.log(data);
+                            console.log(data);
                             if (data.status === "Successful") {
                                 toast.success(data.message);
                                 reset();
@@ -195,17 +210,16 @@ const Publish = () => {
                         <div className="w-full mt-12">
                             <div className="w-full flex flex-col mt-4">
                                 <label className="text-base font-semibold leading-none text-gray-800">
-                                    Add a Resource <span className="text-red-500 text-xs">(use only PDF format file <sup>*</sup>)</span>
+                                    Add a Resource <span className="text-red-500 text-xs">(add a google drive link <sup>*</sup>)</span>
                                 </label>
                                 <input
                                     {...register("resource")}
                                     required
                                     tabIndex={0}
-                                    readOnly
                                     arial-label="Please input resource"
-                                    type="file"
+                                    type="text"
                                     className="text-base  leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-400"
-                                    placeholder="Please input resource"
+                                    placeholder="Please input resource link"
                                 />
                             </div>
                         </div>
