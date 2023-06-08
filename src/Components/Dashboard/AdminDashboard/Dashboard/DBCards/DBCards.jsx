@@ -10,14 +10,14 @@ const DBCards = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users`)
+        fetch(`http://localhost:5000/api/v1/users`)
             .then(res => res.json())
             .then(data => setUsers(data))
     }, []);
 
 
     useEffect(() => {
-        fetch('https://attractive-shrimp.cyclic.app/api/v1/posts')
+        fetch('http://localhost:5000/api/v1/posts')
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])

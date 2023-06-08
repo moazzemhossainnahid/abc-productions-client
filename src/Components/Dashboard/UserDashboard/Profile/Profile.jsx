@@ -36,7 +36,7 @@ const Profile = () => {
                     }
 
                     // send to database
-                    fetch(`https://attractive-shrimp.cyclic.app/users/${email}`, {
+                    fetch(`http://localhost:5000/api/v1/users/${email}`, {
                         method: 'PUT',
                         headers: {
                             "content-type": "application/json",

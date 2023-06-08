@@ -9,7 +9,7 @@ const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
 
 
     const handleApprove = (id) =>{
-        fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts/${id}`, {
+        fetch(`http://localhost:5000/api/v1/posts/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -20,6 +20,7 @@ const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
                 return res.json()
             })
             .then(data => {
+                console.log(data);
                 if (data.modifiedCount > 0) {
                     toast('Approve Post Successfully');
                     setNumber(number + 1)

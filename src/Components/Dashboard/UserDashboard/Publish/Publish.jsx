@@ -42,7 +42,6 @@ const Publish = () => {
         const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
         fetch(url, {
             method: "POST",
-            mode:"no-cors",
             body: imgData,
         })
             .then((res) => res.json())
@@ -73,16 +72,17 @@ const Publish = () => {
                         createdAt:date,
                         resource:resource,
                         cover:img,
+                        status:"unapprove"
                     }
 
                     console.log(postData);
 
                     // Post to database
-                    fetch(`https://attractive-shrimp.cyclic.app/api/v1/posts`, {
+                    fetch(`http://localhost:5000/api/v1/posts`, {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
-                            // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                         },
                         body: JSON.stringify(postData),
                         // body: formData,
@@ -90,8 +90,8 @@ const Publish = () => {
                         .then((res) => res.json())
                         .then((data) => {
                             console.log(data);
-                            if (data.status === "Successful") {
-                                toast.success(data.message);
+                            if (data.acknowledged === true) {
+                                toast.success("Data Added Successfully !");
                                 reset();
                             }
                         });

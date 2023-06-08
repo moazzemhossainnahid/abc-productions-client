@@ -10,7 +10,7 @@ const UseAdmin = () => {
 //   console.log(admin);
     useEffect( () => {
         const email = user?.email; 
-        fetch(`https://attractive-shrimp.cyclic.app/api/v1/users/isAdmin/${email}`, {
+        fetch(`http://localhost:5000/api/v1/users/isAdmin/${email}`, {
             method: 'GET',
             headers: {
                 'content-type' : 'application/json',
@@ -20,7 +20,7 @@ const UseAdmin = () => {
         .then(res => res.json())
         .then(data => {
             // console.log(data);
-            setAdmin(data.role === true);
+            setAdmin(data?.role === true);
             setAdminLoading(false);
         })
 
