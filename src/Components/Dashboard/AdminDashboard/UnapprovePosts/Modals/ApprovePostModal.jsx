@@ -9,7 +9,7 @@ const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
 
 
     const handleApprove = (id) =>{
-        fetch(`http://localhost:5000/api/v1/posts/${id}`, {
+        fetch(`https://abc-publications-server-ii.vercel.app/api/v1/posts/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

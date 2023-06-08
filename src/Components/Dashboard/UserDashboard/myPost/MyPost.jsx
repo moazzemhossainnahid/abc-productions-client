@@ -7,7 +7,7 @@ const MyPost = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/posts')
+        fetch('https://abc-publications-server-ii.vercel.app/api/v1/posts')
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])
