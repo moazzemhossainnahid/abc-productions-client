@@ -1,14 +1,15 @@
 
 import { toast } from 'react-toastify';
+import PDFViewer2 from '../../../../Others/PDFViewer2';
 
 const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
 
-    const {title, authorName, category, status,cover,authorEmail, _id} = unApprovePost;
+    const { title, authorName, category, status, cover, authorEmail, _id, resource } = unApprovePost;
 
     // console.log(unApprovePost);
 
 
-    const handleApprove = (id) =>{
+    const handleApprove = (id) => {
         fetch(`https://abc-publications-server-ii.vercel.app/api/v1/posts/${id}`, {
             method: 'PUT',
             headers: {
@@ -39,7 +40,13 @@ const ApprovePostModal = ({ unApprovePost, setNumber, number }) => {
                         <div className="flex w-full mx-auto items-center justify-center h-full">
                             <div className="flex flex-col md:flex-row gap-2 items-center w-full rounded-lg bg-white shadow-lg">
                                 <div className="w-4/5 p-5 md:w-3/5 mx-auto">
-                                    <img className=" object-cover rounded-full" src={cover} alt="" />
+                                    <img className="object-cover rounded-full" src={cover} alt="" />
+
+                                    <div className="">
+                                        {resource && (
+                                            <PDFViewer2 url={resource} />
+                                        )}
+                                    </div>
                                 </div>
                                 <div className="p-6 w-full md:w-5/6 mx-auto flex flex-col justify-start">
                                     <h5 className="text-gray-900 text-xl font-semibold mb-2">Titile: <span className="text-green-700">{title}</span></h5>
