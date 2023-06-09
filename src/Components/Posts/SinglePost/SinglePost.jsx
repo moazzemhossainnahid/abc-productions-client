@@ -22,6 +22,10 @@ const SinglePost = () => {
             .then(data => setPst(data))
     }, [])
 
+    console.log(blog);
+    console.log(blog?._id);
+    console.log(id);
+
     useEffect(() => {
         let blog = pst?.find((blog) => blog._id === id);
         // setRchPath('https://abc-publications-server-ii.vercel.app/public/images/' + blog?.resource);
@@ -43,16 +47,12 @@ const SinglePost = () => {
                     <div className='blog-wrap'>
                         <header>
                             <p className='blog-date'>Published {blog.createdAt}</p>
-                            <h1 className='text-black dark:text-white text-2xl md:text-4xl font-bold'>{blog.title}</h1>
+                            <h1 className='text-black pb-3 dark:text-white text-2xl md:text-4xl font-bold'>{blog.title}</h1>
                             <div className='blog-subCategory'>
-                                {blog.subCategory.map((category, i) => (
-                                    <div key={i}>
-                                        <Chip label={category} />
-                                    </div>
-                                ))}
+                                <Chip label={blog?.subCategory} />
                             </div>
                         </header>
-                        <img src={blog.cover} alt='cover' />
+                        <img className='py-5' src={blog.cover} alt='cover' />
                         <div className="">
                             <p className='blog-desc'>{blog.description}</p>
                             <div className="">
