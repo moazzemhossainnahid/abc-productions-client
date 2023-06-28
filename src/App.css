@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Gumela';
+  font-family: 'Montserrat';
 }
 
 .App-logo {
@@ -49,7 +49,7 @@
 
 @font-face {
   font-family: Gumela;
-  src: url('./fonts/Gumela.woff');
+  src: url('./fonts/Montserrat.ttf');
 }
 
 
