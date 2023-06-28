@@ -27,7 +27,7 @@ const Header = () => {
             <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
                 <div onClick={() => { navigate('/') }} className="font-bold text-3xl cursor-pointer flex items-center text-[#0f52ba]">
                     <span className="px-2 md:px-1"></span>
-                    ABC Publications
+                    ScholarSphere
                 </div>
 
                 <div onClick={() => setOpen(!open)} className="text-3xl absolute right-8 text-black top-6 cursor-pointer md:hidden">
