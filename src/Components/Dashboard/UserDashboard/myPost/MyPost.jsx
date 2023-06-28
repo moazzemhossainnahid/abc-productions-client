@@ -24,7 +24,7 @@ const MyPost = () => {
                     {
                         myPosts?.map(post => (
                             
-                            <div key={post?._id} className="flex flex-col md:flex-row gap-2 items-center md:h-72 bg-rose-300 dark:bg-white w-full h-fit rounded-lg bg-red shadow-lg">
+                            <div key={post?._id} className="flex flex-col md:flex-row gap-2 items-center md:h-72 bg-[#EBEFEE] w-full h-fit rounded-lg bg-red shadow-lg">
                                 <div className="w-4/5 p-5 md:w-2/5 mx-auto">
                                     <img className=" object-cover rounded-full" src={post?.cover} alt="" />
                                 </div>
