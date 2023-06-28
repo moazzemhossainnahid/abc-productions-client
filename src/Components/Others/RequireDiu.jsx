@@ -7,7 +7,7 @@ import Loading from './Loading';
 import auth from '../../../firebase.init';
 
 
-const RequireAuth = ({ children }) => {
+const RequireDiu = ({ children }) => {
     const [sendEmailVerification, sending] = useSendEmailVerification(auth);
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
@@ -20,7 +20,12 @@ const RequireAuth = ({ children }) => {
         signOut(auth);
         return <Navigate to='/signin' state={{ from: location }} replace />
     }
-    
+    if (!user?.email.includes("@diu.edu.bd")) {
+        signOut(auth);
+        toast.error("Please Login with DIU Email..!")
+        return <Navigate to='/signin' state={{ from: location }} replace />
+    }
+
     if (!user.emailVerified) {
         return <div>
             <div className="card flex justify-evenly bg-base-100 shadow-2xl py-10">
@@ -42,4 +47,4 @@ const RequireAuth = ({ children }) => {
     return children;
 };
 
-export default RequireAuth;
+export default RequireDiu;

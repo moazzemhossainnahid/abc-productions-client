@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import Signin from './Components/Auth/Signin/Signin';
 import Signup from './Components/Auth/Signup/Signup';
 import RequireAuth from './Components/Others/RequireAuth';
+import RequireDiu from './Components/Others/RequireDiu';
 import RequireAdmin from './Components/Others/RequireAdmin';
 import CPanel from './Components/Dashboard/AdminDashboard/Admin/CPanel';
 import AdDashboard from './Components/Dashboard/AdminDashboard/Dashboard/AdDashboard';
@@ -31,7 +32,7 @@ function App() {
         {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/approveposts' && window.location.pathname !== '/cpanel/unapproveposts') && <Header />}
         <Routes>
           <Route path="/" element={<Posts />} />
-          <Route path='/post/:id' element={<RequireAuth><SinglePost/></RequireAuth>} />
+          <Route path='/post/:id' element={<RequireDiu><SinglePost /></RequireDiu>} />
           <Route path="/aboutus" element={<AboutUS />} />
           <Route path="/contactus" element={<ContactUS />} />
           <Route path="/signin" element={<Signin />} />
