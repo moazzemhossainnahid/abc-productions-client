@@ -2,13 +2,12 @@
 import './styles.css';
 
 const PostHeader = () => (
-  <header className='home-header'>
+  <header className='home-header pt-5'>
     <h1>
-      <span>“</span> Posts <span>”</span>
+      {/* <span>“</span> Posts <span>”</span> */}
     </h1>
-    <p>
-      awesome place to make oneself <br /> productive and entertained through
-      daily updates.
+    <p className='text-3xl font-bold text-gray-700'>
+      Advancing Technology for Humanity
     </p>
   </header>
 );

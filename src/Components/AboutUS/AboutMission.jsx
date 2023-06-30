@@ -3,9 +3,9 @@ import React from "react";
 const AboutMission = () => {
   return (
     <div className="  pt-14 p-5">
-      <div className=" lg:container my-20 md:my-20 mx-auto dark:text-gray-200 ">
+      <div className=" lg:container text-gray-600 my-20 md:my-20 mx-auto">
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
-            <p className="font-normal text-sm leading-3 text-indigo-700 hover:text-indigo-800 cursor-pointer pb-2">About</p>
+            <p className="font-normal leading-3 text-indigo-700 hover:text-indigo-800 cursor-pointer pb-2">About</p>
             <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
                 <div className="w-full lg:w-6/12">
                     <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9">We are here to make great design accessible and delightfull for everyone</h2>
@@ -45,19 +45,19 @@ const AboutMission = () => {
                         <path d="M33 33.0001V31.0001C32.9949 30.1173 32.6979 29.2609 32.1553 28.5645C31.6126 27.8682 30.8548 27.3708 30 27.1501" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
-                <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+                <hr className="z-10 absolute top-2/4 w-full bg-gray-700" />
             </div>
             <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
                 <div>
-                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-200 mt-6">Founded</p>
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-700 mt-6">Founded</p>
                     <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 </div>
                 <div>
-                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-200 mt-6">50M montly enrichments</p>
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-700 mt-6">50M montly enrichments</p>
                     <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 </div>
                 <div className="sm:block hidden">
-                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-200 mt-6">400k User</p>
+                    <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-700 mt-6">400k User</p>
                     <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const AboutMission = () => {
                         <path d="M33 33.0001V31.0001C32.9949 30.1173 32.6979 29.2609 32.1553 28.5645C31.6126 27.8682 30.8548 27.3708 30 27.1501" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
-                <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+                <hr className="z-10 absolute top-2/4 w-full bg-gray-700" />
             </div>
             <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
                 <div>
@@ -82,7 +82,7 @@ const AboutMission = () => {
 
             <div className="flex lg:flex-row flex-col md:gap-14 gap-16 justify-between lg:mt-20 mt-16">
                 <div className="w-full lg:w-6/12">
-                    <h2 className="font-bold lg:text-4xl text-3xl -ml-20 lg:leading-9 leading-7 text-gray-800 dark:text-gray-200">Our Mission</h2>
+                    <h2 className="font-bold lg:text-4xl text-3xl -ml-20 lg:leading-9 leading-7 text-gray-800 dark:text-gray-700">Our Mission</h2>
                     <p className="font-normal text-base leading-6 text-gray-600 mt-6 w-full lg:w-10/12 xl:w-9/12">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
                     <p className="font-normal text-base leading-6 text-gray-600 w-full lg:w-10/12 xl:w-9/12 mt-10">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
                 </div>
@@ -98,7 +98,7 @@ const AboutMission = () => {
                                 </svg>
                             </div>
                             <div className="">
-                                <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-200">Team</p>
+                                <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-700">Team</p>
                                 <p className="mt-2 font-normal text-base leading-6 text-gray-600">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ const AboutMission = () => {
                                 </svg>
                             </div>
                             <div className="">
-                                <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-200">Board</p>
+                                <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-700">Board</p>
                                 <p className="mt-2 font-normal text-base leading-6 text-gray-600">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ const AboutMission = () => {
                                 </svg>
                             </div>
                             <div className="">
-                                <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-200">Press</p>
+                                <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-gray-700">Press</p>
                                 <p className="mt-2 font-normal text-base leading-6 text-gray-600">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                             </div>
                         </div>
