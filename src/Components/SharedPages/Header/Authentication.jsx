@@ -42,7 +42,7 @@ const Authentication = () => {
                     <ul tabIndex="0" className="mt-3 p-2 gap-1 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                         <li> <Link to="/profile" className="justify-between"> Profile <span className="badge">New</span> </Link> </li>
                         <li><Link to="/mypost">My Post</Link></li>
-                        <li><Link to="/publish">Publish Post</Link></li>
+                       {user?.email.includes("@diu.edu.bd") && <li><Link to="/publish">Publish Post</Link></li>} 
                         <li><button onClick={handleSignOut}>Sign Out</button></li>
                     </ul>
                 </div>

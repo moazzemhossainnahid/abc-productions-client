@@ -32,7 +32,7 @@ function App() {
         {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/approveposts' && window.location.pathname !== '/cpanel/unapproveposts') && <Header />}
         <Routes>
           <Route path="/" element={<Posts />} />
-          <Route path='/post/:id' element={<RequireDiu><SinglePost /></RequireDiu>} />
+          <Route path='/post/:id' element={<RequireAuth><SinglePost /></RequireAuth>} />
           <Route path="/aboutus" element={<AboutUS />} />
           <Route path="/contactus" element={<ContactUS />} />
           <Route path="/signin" element={<Signin />} />
@@ -42,7 +42,7 @@ function App() {
           {/* User Routes */}
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
           <Route path="/mypost" element={<RequireAuth><MyPost /></RequireAuth>} />
-          <Route path="/publish" element={<RequireAuth><Publish /></RequireAuth>} />
+          <Route path="/publish" element={<RequireDiu><Publish /></RequireDiu>} />
 
 
           {/* Control Panel Routes */}
