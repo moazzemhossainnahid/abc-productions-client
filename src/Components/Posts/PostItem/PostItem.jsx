@@ -24,14 +24,14 @@ const PostItem = ({
       <h3 className='text-xl text-gray-700 md:text-2xl font-bold text-start'>{title}</h3>
       {/* <p className='blogItem-desc text-start pb-7'>{description?.slice(0,120)}</p> */}
       <footer className='-mt-3'>
-        {/* <div className='blogItem-author'>
+        <div className='blogItem-author'>
             <img src={authorAvatar} alt='avatar' />
-            <div>
+            <div className='text-left'>
               <h6>{authorName}</h6>
               <p>{createdAt}</p>
             </div>
           </div>
-          <Link className='blogItem-link text-xl' to={`/post/${_id}`}>
+          {/* <Link className='blogItem-link text-xl' to={`/post/${_id}`}>
             ➝
           </Link> */}
         <div className="">
