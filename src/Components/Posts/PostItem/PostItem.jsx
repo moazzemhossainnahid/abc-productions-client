@@ -21,20 +21,20 @@ const PostItem = ({
     <div className='blogItem-wrap'>
       <img className='blogItem-cover rounded' src={cover} alt='cover' />
       {/* <Chip label={category} /> */}
-      <h3 className='text-xl text-gray-700 md:text-2xl font-bold text-start'>{title}</h3>
+      <h3 className='text-md capitalize text-gray-700 md:text-xl font-bold text-start'>{title}</h3>
       {/* <p className='blogItem-desc text-start pb-7'>{description?.slice(0,120)}</p> */}
       <footer className='-mt-3'>
-        <div className='blogItem-author'>
+        <div className='blogItem-author w-3/6'>
             <img src={authorAvatar} alt='avatar' />
             <div className='text-left'>
-              <h6>{authorName}</h6>
+              <h6 className='text-sm text-gray-700'>{authorName}</h6>
               <p>{createdAt}</p>
             </div>
           </div>
           {/* <Link className='blogItem-link text-xl' to={`/post/${_id}`}>
             ➝
           </Link> */}
-        <div className="">
+        <div className="w-2/5">
           <Link className='blogItem-link text-gray-500  text-xl group flex items-center gap-2' to={`/post/${_id}`}>
             Read More <FaAngleRight className="mt-1 group-hover:translate-x-3 duration-300 ease-in-out"/>
           </Link>

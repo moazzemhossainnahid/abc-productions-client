@@ -47,7 +47,7 @@ const SinglePost = () => {
                     <div className='blog-wrap'>
                         <header>
                             <p className='blog-date'>Published {blog.createdAt}</p>
-                            <h1 className='text-black pb-3 dark:text-white text-2xl md:text-4xl font-bold'>{blog.title}</h1>
+                            <h1 className='text-black pb-3 text-2xl md:text-4xl font-bold'>{blog.title}</h1>
                             <div className='blog-subCategory'>
                                 <Chip label={blog?.subCategory} />
                             </div>
