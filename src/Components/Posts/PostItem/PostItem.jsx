@@ -18,7 +18,7 @@ const PostItem = ({
   },
 }) => {
   return (
-    <div className='blogItem-wrap'>
+    <div className='blogItem-wrap shadow p-5 rounded hover:shadow-2xl duration-300 ease-in-out'>
       <img className='blogItem-cover rounded' src={cover} alt='cover' />
       {/* <Chip label={category} /> */}
       <h3 className='text-md capitalize text-gray-700 md:text-xl font-bold text-start'>{title}</h3>
