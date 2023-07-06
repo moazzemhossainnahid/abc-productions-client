@@ -106,7 +106,7 @@ const Profile = () => {
                                 </div>
                                 <div className="pb-4">
                                     <label for="role" className="font-semibold text-gray-700 block pb-1">Role</label>
-                                    <input disabled id="role" className="border-1 text-gray-500 rounded-r px-4 py-2 w-full" type="tel" value={profile?.role} />
+                                    <input disabled id="role" className="border-1 text-gray-500 rounded-r px-4 py-2 w-full" type="tel" value={profile?.role ? profile?.role : "user"} />
                                     <span className="text-gray-600 pt-4 block opacity-70">Personal login information of your account</span>
                                 </div>
                             </div>
