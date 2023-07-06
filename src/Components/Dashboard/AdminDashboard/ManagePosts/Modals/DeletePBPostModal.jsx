@@ -6,7 +6,7 @@ const DeletePBPostModal = ({ deletePost, setNumber, number }) => {
     const { title, authorName, category, _id, cover } = deletePost;
 
     const handleDelete = (id) => {
-        const url = `https://abc-publications-server-ii.vercel.app/api/v1/posts/${id}`;
+        const url = `http://localhost:5000/api/v1/posts/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

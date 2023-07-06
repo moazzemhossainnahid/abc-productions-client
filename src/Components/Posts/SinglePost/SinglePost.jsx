@@ -17,7 +17,7 @@ const SinglePost = () => {
     // const [rcsPath, setRchPath] = useState('');
 
     useEffect(() => {
-        fetch('https://abc-publications-server-ii.vercel.app/api/v1/posts')
+        fetch('http://localhost:5000/api/v1/posts')
             .then(res => res.json())
             .then(data => setPst(data))
     }, [])
@@ -28,7 +28,7 @@ const SinglePost = () => {
 
     useEffect(() => {
         let blog = pst?.find((blog) => blog._id === id);
-        // setRchPath('https://abc-publications-server-ii.vercel.app/public/images/' + blog?.resource);
+        // setRchPath('http://localhost:5000/public/images/' + blog?.resource);
         if (blog) {
             setBlog(blog);
         }
@@ -56,7 +56,7 @@ const SinglePost = () => {
                         <div className="">
                             <p className='blog-desc'>{blog.description}</p>
                             <div className="">
-                                {/* {rcsPath !== "https://abc-publications-server-ii.vercel.app/public/images/undefined" && (
+                                {/* {rcsPath !== "http://localhost:5000/public/images/undefined" && (
                                     <PDFViewer url={rcsPath} />
                                 )} */}
                                 {blog?.resource && (

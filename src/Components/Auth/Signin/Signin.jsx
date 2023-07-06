@@ -16,7 +16,7 @@ const Signin = () => {
   const [signInWithEmailAndPassword, suser, sloading, serror] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-
+  const [token] = UseToken();
   const { register, handleSubmit, reset, errors } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
@@ -40,7 +40,7 @@ const Signin = () => {
 
   const from = location.state?.from?.pathname || '/';
 
-  const [token] = UseToken();
+
 
 
   if (sloading || gloading) {
@@ -51,6 +51,7 @@ const Signin = () => {
   //     signinError = <p className="text-red-700">{serror?.message || gerror?.message || giterror?.message || ferror?.message}</p>
   // }
 
+console.log(token);
 
   if (token) {
     navigate(from, { replace: true });

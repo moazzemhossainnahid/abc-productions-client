@@ -8,7 +8,7 @@ const useProfile = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`https://abc-publications-server-ii.vercel.app/api/v1/users/${email}`)
+        fetch(`http://localhost:5000/api/v1/users/${email}`)
             .then(res => res.json())
             .then(data => setProfile(data))
     }, [email]);

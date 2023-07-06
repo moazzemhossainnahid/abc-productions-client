@@ -9,7 +9,7 @@ const ManageUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect( () => {
-        fetch('https://abc-publications-server-ii.vercel.app/api/v1/users')
+        fetch('http://localhost:5000/api/v1/users')
         .then(res => res.json())
         .then(data => setUsers(data))
     }, [users]);

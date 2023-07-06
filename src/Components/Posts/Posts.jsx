@@ -13,7 +13,7 @@ const Posts = () => {
     const [allBlogs, setAllBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('https://abc-publications-server-ii.vercel.app/api/v1/posts')
+        fetch('http://localhost:5000/api/v1/posts')
             .then(res => res.json())
             .then(data => setAllBlogs(data.filter(b => b?.status === 'approve')))
     }, [])
