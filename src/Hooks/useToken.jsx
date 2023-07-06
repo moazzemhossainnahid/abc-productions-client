@@ -13,7 +13,8 @@ const UseToken = () => {
         const currentUser = {
             displayName: displayName,
             email: email,
-            role: "user"
+            role: "user",
+            status:"active"
         }
 
 
