@@ -9,7 +9,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const [profile] = useProfile();
   return (
-    <div className="flex sticky -mt-20">
+    <div className="flex sticky bg-white -mt-20">
       <div className={` ${open ? "w-72 h-screen" : "w-20 h-screen"} bg-[#EBEFEE] sticky p-5 duration-300`} >
         <img src="https://i.ibb.co/CB1yQwj/kuba-arrow-button-set-2.png" className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} alt="" />
         <div className="flex flex-col gap-x-4 items-center">
