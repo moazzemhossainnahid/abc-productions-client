@@ -17,7 +17,7 @@ const UseToken = () => {
 
 
         if (email) {
-            fetch(`http://localhost:5000/api/v1/users/${email}`, {
+            fetch(`https://abc-publications-server-ii.vercel.app/api/v1/users/${email}`, {
                 method: 'PUT',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(currentUser)
