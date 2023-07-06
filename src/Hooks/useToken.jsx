@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 const UseToken = () => {
     const [user] = useAuthState(auth);
     const [token, setToken] = useState('');
-    console.log(user);
+    // console.log(user);
     useEffect(() => {
         const email = user?.email;
         const displayName = user?.displayName;
@@ -24,7 +24,7 @@ const UseToken = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     const accessToken = data?.accessToken;
                     localStorage.setItem('accessToken', accessToken);
                     setToken(accessToken);
